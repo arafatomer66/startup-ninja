@@ -2,7 +2,7 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [main, master]
+    branches: [main, master, interactive-trackers]
   workflow_dispatch:
 
 # Allow only one concurrent deployment, skip queued runs
