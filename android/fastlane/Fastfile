@@ -1,0 +1,117 @@
+# Fastlane lanes for Startup Ninja Android releases.
+#
+# All lanes assume:
+#   - Flutter is on PATH (run `flutter doctor` if not)
+#   - android/key.properties + the keystore at /Users/mdomerarafat/startupninja.jks
+#     are present (already configured in build.gradle.kts)
+#   - android/fastlane/play-store-service-account.json exists (gitignored)
+#
+# Common usage:
+#   cd android && fastlane internal             # build + upload to internal testing
+#   cd android && fastlane internal_dryrun      # validate everything without uploading
+#   cd android && fastlane promote_internal_to_alpha
+#   cd android && fastlane promote_alpha_to_production
+
+default_platform(:android)
+
+# Bump only the build number (versionCode) — keep semver name untouched.
+# Reads version: from pubspec.yaml, increments the +N suffix, writes it back.
+def bump_pubspec_build_number
+  pubspec = File.expand_path("../../pubspec.yaml", __dir__)
+  content = File.read(pubspec)
+  m = content.match(/^version:\s*(\d+\.\d+\.\d+)\+(\d+)\s*$/)
+  raise "Could not parse version: line in pubspec.yaml" unless m
+  name, code = m[1], m[2].to_i
+  new_code = code + 1
+  new_line = "version: #{name}+#{new_code}"
+  File.write(pubspec, content.sub(/^version:.*$/, new_line))
+  UI.success("Bumped pubspec.yaml: #{name}+#{code} → #{name}+#{new_code}")
+  { name: name, code: new_code }
+end
+
+platform :android do
+  desc "Build a fresh signed release App Bundle (.aab) via Flutter"
+  lane :build_aab do
+    sh("cd .. && flutter clean")
+    sh("cd .. && flutter pub get")
+    sh("cd .. && flutter build appbundle --release")
+    aab = "../build/app/outputs/bundle/release/app-release.aab"
+    UI.success("Built #{File.expand_path(aab)}")
+    aab
+  end
+
+  desc "Bump versionCode, build, and upload to Internal Testing track"
+  lane :internal do
+    version = bump_pubspec_build_number
+    build_aab
+    upload_to_play_store(
+      track: "internal",
+      aab: "../build/app/outputs/bundle/release/app-release.aab",
+      release_status: "draft",
+      skip_upload_metadata: true,
+      skip_upload_changelogs: true,
+      skip_upload_images: true,
+      skip_upload_screenshots: true,
+    )
+    UI.success("Uploaded #{version[:name]}+#{version[:code]} to Internal Testing as a draft. Open Play Console → Internal testing to roll it out.")
+  end
+
+  desc "Build + upload + immediately roll out to Internal Testing (no draft step)"
+  lane :internal_rollout do
+    version = bump_pubspec_build_number
+    build_aab
+    upload_to_play_store(
+      track: "internal",
+      aab: "../build/app/outputs/bundle/release/app-release.aab",
+      release_status: "completed",
+      skip_upload_metadata: true,
+      skip_upload_changelogs: true,
+      skip_upload_images: true,
+      skip_upload_screenshots: true,
+    )
+    UI.success("#{version[:name]}+#{version[:code]} is live on Internal Testing.")
+  end
+
+  desc "Validate fastlane + service account + Play Console connection without uploading"
+  lane :internal_dryrun do
+    upload_to_play_store(
+      track: "internal",
+      validate_only: true,
+      aab: "../build/app/outputs/bundle/release/app-release.aab",
+      skip_upload_metadata: true,
+      skip_upload_changelogs: true,
+      skip_upload_images: true,
+      skip_upload_screenshots: true,
+    )
+    UI.success("Dry-run OK — service account + Play Console wiring verified.")
+  end
+
+  desc "Promote the latest Internal build to the Closed Alpha track"
+  lane :promote_internal_to_alpha do
+    upload_to_play_store(
+      track: "internal",
+      track_promote_to: "alpha",
+      skip_upload_aab: true,
+      skip_upload_apk: true,
+      skip_upload_metadata: true,
+      skip_upload_changelogs: true,
+      skip_upload_images: true,
+      skip_upload_screenshots: true,
+    )
+  end
+
+  desc "Promote the latest Alpha build to Production"
+  lane :promote_alpha_to_production do
+    upload_to_play_store(
+      track: "alpha",
+      track_promote_to: "production",
+      rollout: "0.1", # 10% staged rollout
+      skip_upload_aab: true,
+      skip_upload_apk: true,
+      skip_upload_metadata: true,
+      skip_upload_changelogs: true,
+      skip_upload_images: true,
+      skip_upload_screenshots: true,
+    )
+  end
+end
