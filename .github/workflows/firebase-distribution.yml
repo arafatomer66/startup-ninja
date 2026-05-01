@@ -115,7 +115,7 @@ jobs:
             build/app/outputs/flutter-apk/app-release.apk \
             --app "$FIREBASE_APP_ID" \
             --release-notes "${{ steps.notes.outputs.value }}" \
-            --groups "testers" \
+            --groups "arafat-test" \
             --token "$FIREBASE_TOKEN"
 
       - name: Commit version bump back to main

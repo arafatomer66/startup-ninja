@@ -68,7 +68,7 @@ platform :android do
         build/app/outputs/flutter-apk/app-release.apk \
         --app "#{ENV['FIREBASE_APP_ID']}" \
         --release-notes "#{notes}" \
-        --groups "testers"
+        --groups "arafat-test"
     ).gsub(/\s+/, ' '))
     UI.success("#{version[:name]}+#{version[:code]} sent to Firebase App Distribution → testers group.")
   end
