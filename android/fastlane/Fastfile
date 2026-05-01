@@ -6,11 +6,15 @@
 #     are present (already configured in build.gradle.kts)
 #   - android/fastlane/play-store-service-account.json exists (gitignored)
 #
+# Track naming note: this app ships to **Closed testing**. In Play Console
+# API terms that's the `alpha` track (legacy name). All lanes target alpha.
+#
 # Common usage:
-#   cd android && fastlane internal             # build + upload to internal testing
-#   cd android && fastlane internal_dryrun      # validate everything without uploading
-#   cd android && fastlane promote_internal_to_alpha
-#   cd android && fastlane promote_alpha_to_production
+#   cd android && fastlane closed              # build + upload to Closed testing as draft
+#   cd android && fastlane closed_rollout      # build + upload + roll out to Closed testing
+#   cd android && fastlane closed_dryrun       # validate everything without uploading
+#   cd android && fastlane promote_closed_to_open
+#   cd android && fastlane promote_to_production
 
 default_platform(:android)
 
@@ -40,12 +44,12 @@ platform :android do
     aab
   end
 
-  desc "Bump versionCode, build, and upload to Internal Testing track"
-  lane :internal do
+  desc "Bump versionCode, build, and upload to Closed testing as a draft"
+  lane :closed do
     version = bump_pubspec_build_number
     build_aab
     upload_to_play_store(
-      track: "internal",
+      track: "alpha",
       aab: "../build/app/outputs/bundle/release/app-release.aab",
       release_status: "draft",
       skip_upload_metadata: true,
@@ -53,15 +57,15 @@ platform :android do
       skip_upload_images: true,
       skip_upload_screenshots: true,
     )
-    UI.success("Uploaded #{version[:name]}+#{version[:code]} to Internal Testing as a draft. Open Play Console → Internal testing to roll it out.")
+    UI.success("Uploaded #{version[:name]}+#{version[:code]} to Closed testing as a draft. Open Play Console → Closed testing to roll it out.")
   end
 
-  desc "Build + upload + immediately roll out to Internal Testing (no draft step)"
-  lane :internal_rollout do
+  desc "Build + upload + immediately roll out to Closed testing (no draft step)"
+  lane :closed_rollout do
     version = bump_pubspec_build_number
     build_aab
     upload_to_play_store(
-      track: "internal",
+      track: "alpha",
       aab: "../build/app/outputs/bundle/release/app-release.aab",
       release_status: "completed",
       skip_upload_metadata: true,
@@ -69,13 +73,13 @@ platform :android do
       skip_upload_images: true,
       skip_upload_screenshots: true,
     )
-    UI.success("#{version[:name]}+#{version[:code]} is live on Internal Testing.")
+    UI.success("#{version[:name]}+#{version[:code]} is live on Closed testing.")
   end
 
   desc "Validate fastlane + service account + Play Console connection without uploading"
-  lane :internal_dryrun do
+  lane :closed_dryrun do
     upload_to_play_store(
-      track: "internal",
+      track: "alpha",
       validate_only: true,
       aab: "../build/app/outputs/bundle/release/app-release.aab",
       skip_upload_metadata: true,
@@ -86,11 +90,11 @@ platform :android do
     UI.success("Dry-run OK — service account + Play Console wiring verified.")
   end
 
-  desc "Promote the latest Internal build to the Closed Alpha track"
-  lane :promote_internal_to_alpha do
+  desc "Promote the latest Closed testing build to the Open testing track"
+  lane :promote_closed_to_open do
     upload_to_play_store(
-      track: "internal",
-      track_promote_to: "alpha",
+      track: "alpha",
+      track_promote_to: "beta",
       skip_upload_aab: true,
       skip_upload_apk: true,
       skip_upload_metadata: true,
@@ -100,12 +104,12 @@ platform :android do
     )
   end
 
-  desc "Promote the latest Alpha build to Production"
-  lane :promote_alpha_to_production do
+  desc "Promote the latest Closed testing build to Production (10% staged rollout)"
+  lane :promote_to_production do
     upload_to_play_store(
       track: "alpha",
       track_promote_to: "production",
-      rollout: "0.1", # 10% staged rollout
+      rollout: "0.1",
       skip_upload_aab: true,
       skip_upload_apk: true,
       skip_upload_metadata: true,
