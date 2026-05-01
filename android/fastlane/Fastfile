@@ -44,6 +44,44 @@ platform :android do
     aab
   end
 
+  desc "Build a fresh signed release APK (.apk) via Flutter — for Firebase App Distribution"
+  lane :build_apk do
+    sh("cd .. && flutter clean")
+    sh("cd .. && flutter pub get")
+    sh("cd .. && flutter build apk --release")
+    apk = "../build/app/outputs/flutter-apk/app-release.apk"
+    UI.success("Built #{File.expand_path(apk)}")
+    apk
+  end
+
+  # ── Firebase App Distribution lanes ──────────────────────────────────────────
+  # Reads FIREBASE_APP_ID + FIREBASE_TOKEN from env (or .env.firebase), uploads
+  # the latest signed APK, notifies the testers group.
+
+  desc "Bump versionCode, build APK, ship to Firebase App Distribution"
+  lane :firebase do
+    version = bump_pubspec_build_number
+    build_apk
+    notes = ENV["RELEASE_NOTES"] || "Build #{version[:name]}+#{version[:code]} from main"
+    sh(%(
+      cd .. && firebase appdistribution:distribute \
+        build/app/outputs/flutter-apk/app-release.apk \
+        --app "#{ENV['FIREBASE_APP_ID']}" \
+        --release-notes "#{notes}" \
+        --groups "testers"
+    ).gsub(/\s+/, ' '))
+    UI.success("#{version[:name]}+#{version[:code]} sent to Firebase App Distribution → testers group.")
+  end
+
+  desc "Validate Firebase CLI auth + App ID without uploading"
+  lane :firebase_dryrun do
+    if ENV["FIREBASE_APP_ID"].to_s.empty?
+      UI.user_error!("FIREBASE_APP_ID is not set")
+    end
+    sh(%(firebase apps:list --project "#{ENV['FIREBASE_PROJECT_ID']}"))
+    UI.success("Firebase auth + project access confirmed.")
+  end
+
   desc "Bump versionCode, build, and upload to Closed testing as a draft"
   lane :closed do
     version = bump_pubspec_build_number

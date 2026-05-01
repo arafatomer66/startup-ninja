@@ -1,30 +1,29 @@
-name: Android — Build & Ship to Closed Testing
+name: Android — Ship to Firebase App Distribution
 
-# Manual only for now — Firebase App Distribution is the primary CI channel.
-# Re-enable the push trigger once Play Console API access unlocks.
 on:
+  push:
+    branches: [main]
+    paths:
+      - 'lib/**'
+      - 'pubspec.yaml'
+      - 'android/**'
+      - '.github/workflows/firebase-distribution.yml'
   workflow_dispatch:
     inputs:
-      track:
-        description: Play Console track to upload to
-        required: true
-        default: alpha
-        type: choice
-        options:
-          - alpha           # Closed testing
-          - beta            # Open testing
-          - production      # Production (10% staged)
-          - dryrun          # Validate only, no upload
+      release_notes:
+        description: Release notes shown to testers
+        required: false
+        default: New build from main
 
 concurrency:
-  group: android-release
-  cancel-in-progress: false   # never cancel an in-flight upload
+  group: firebase-distribution
+  cancel-in-progress: false
 
 permissions:
-  contents: write             # for the auto-bump commit
+  contents: write
 
 jobs:
-  release:
+  ship:
     runs-on: ubuntu-latest
     timeout-minutes: 25
 
@@ -48,14 +47,10 @@ jobs:
           flutter-version: 3.38.5
           cache: true
 
-      - name: Set up Ruby (for fastlane)
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: '3.2'
-          bundler-cache: false
-
-      - name: Install fastlane
-        run: gem install fastlane -NV
+      - name: Install Firebase CLI
+        run: |
+          curl -sL https://firebase.tools | bash
+          firebase --version
 
       - name: Decode signing keystore
         env:
@@ -81,21 +76,9 @@ jobs:
           storeFile=$KEYSTORE_PATH
           EOF
 
-      - name: Write Play Console service account JSON
-        env:
-          PLAY_SERVICE_ACCOUNT_JSON: ${{ secrets.PLAY_SERVICE_ACCOUNT_JSON }}
-        run: |
-          if [ -z "$PLAY_SERVICE_ACCOUNT_JSON" ]; then
-            echo "::error::PLAY_SERVICE_ACCOUNT_JSON secret is not set"
-            exit 1
-          fi
-          mkdir -p android/fastlane
-          echo "$PLAY_SERVICE_ACCOUNT_JSON" > android/fastlane/play-store-service-account.json
-
       - name: Bump build number
         id: bump
         run: |
-          # Find current version (e.g. 1.1.0+2), increment +N, write back
           line=$(grep '^version:' pubspec.yaml)
           name=$(echo "$line" | sed -E 's/^version:[[:space:]]*([0-9]+\.[0-9]+\.[0-9]+)\+[0-9]+.*/\1/')
           code=$(echo "$line" | sed -E 's/^version:[[:space:]]*[0-9]+\.[0-9]+\.[0-9]+\+([0-9]+).*/\1/')
@@ -104,29 +87,39 @@ jobs:
           echo "version=$name+$new_code" >> $GITHUB_OUTPUT
           echo "Bumped to $name+$new_code"
 
-      - name: Resolve target track
-        id: track
-        run: |
-          track="${{ github.event.inputs.track }}"
-          if [ -z "$track" ] || [ "$track" = "null" ]; then track="alpha"; fi
-          echo "value=$track" >> $GITHUB_OUTPUT
+      - name: Build release APK
+        run: flutter build apk --release
 
-      - name: Build release App Bundle
-        run: flutter build appbundle --release
-
-      - name: Upload to Play Console
-        working-directory: android
+      - name: Resolve release notes
+        id: notes
         run: |
-          case "${{ steps.track.outputs.value }}" in
-            dryrun) fastlane closed_dryrun ;;
-            alpha)  fastlane closed_rollout ;;
-            beta)   fastlane promote_closed_to_open ;;
-            production) fastlane promote_to_production ;;
-            *) echo "Unknown track"; exit 1 ;;
-          esac
+          if [ -n "${{ github.event.inputs.release_notes }}" ]; then
+            notes="${{ github.event.inputs.release_notes }}"
+          else
+            notes="$(git log -1 --pretty=format:'%s')"
+          fi
+          # Escape for the JSON / shell pipeline
+          notes_clean=$(echo "$notes" | tr '\n' ' ' | sed 's/"/\\"/g')
+          echo "value=$notes_clean" >> $GITHUB_OUTPUT
+
+      - name: Distribute to Firebase
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+          FIREBASE_APP_ID: ${{ secrets.FIREBASE_ANDROID_APP_ID }}
+        run: |
+          if [ -z "$FIREBASE_TOKEN" ] || [ -z "$FIREBASE_APP_ID" ]; then
+            echo "::error::FIREBASE_TOKEN or FIREBASE_ANDROID_APP_ID secret is missing"
+            exit 1
+          fi
+          firebase appdistribution:distribute \
+            build/app/outputs/flutter-apk/app-release.apk \
+            --app "$FIREBASE_APP_ID" \
+            --release-notes "${{ steps.notes.outputs.value }}" \
+            --groups "testers" \
+            --token "$FIREBASE_TOKEN"
 
       - name: Commit version bump back to main
-        if: steps.track.outputs.value != 'dryrun' && github.event_name == 'push'
+        if: github.event_name == 'push'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
@@ -134,11 +127,11 @@ jobs:
           git commit -m "chore(release): bump version to ${{ steps.bump.outputs.version }} [skip ci]" || echo "nothing to commit"
           git push
 
-      - name: Upload .aab as workflow artifact
+      - name: Upload APK artifact
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: app-release-${{ steps.bump.outputs.version }}.aab
-          path: build/app/outputs/bundle/release/app-release.aab
+          name: app-release-${{ steps.bump.outputs.version }}.apk
+          path: build/app/outputs/flutter-apk/app-release.apk
           if-no-files-found: warn
           retention-days: 30
