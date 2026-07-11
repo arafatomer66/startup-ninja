@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'app/theme.dart';
 import 'app/routes.dart';
+import 'data/providers/course_progress_provider.dart';
 import 'data/providers/progress_provider.dart';
 import 'data/providers/section_data_provider.dart';
 import 'data/services/blueprint_aggregator.dart';
@@ -12,6 +13,7 @@ void main() async {
   await GetStorage.init();
   Get.put(ProgressProvider());
   Get.put(SectionDataProvider());
+  Get.put(CourseProgressProvider());
   Get.put(BlueprintAggregator());
   runApp(const StartupNinjaApp());
 }

@@ -65,20 +65,24 @@ class ProfileScreen extends StatelessWidget {
                         children: [
                           Row(
                             children: [
-                              GestureDetector(
-                                onTap: () => Get.back(),
-                                child: Container(
-                                  width: 38,
-                                  height: 38,
-                                  decoration: BoxDecoration(
-                                    color: Colors.white.withValues(alpha: 0.2),
-                                    borderRadius: BorderRadius.circular(10),
+                              if (Navigator.of(context).canPop())
+                                GestureDetector(
+                                  onTap: () => Get.back(),
+                                  child: Container(
+                                    width: 38,
+                                    height: 38,
+                                    decoration: BoxDecoration(
+                                      color:
+                                          Colors.white.withValues(alpha: 0.2),
+                                      borderRadius: BorderRadius.circular(10),
+                                    ),
+                                    child: const Icon(
+                                        Icons.arrow_back_ios_new_rounded,
+                                        color: Colors.white, size: 16),
                                   ),
-                                  child: const Icon(
-                                      Icons.arrow_back_ios_new_rounded,
-                                      color: Colors.white, size: 16),
-                                ),
-                              ),
+                                )
+                              else
+                                const SizedBox(width: 38),
                               const Spacer(),
                               const Text(
                                 'Profile',

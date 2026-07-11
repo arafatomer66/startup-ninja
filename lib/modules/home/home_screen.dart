@@ -7,6 +7,8 @@ import '../../data/models/kit_model.dart';
 import '../../data/providers/progress_provider.dart';
 import '../../data/services/blueprint_aggregator.dart';
 import '../../widgets/responsive.dart';
+import '../shell/shell_screen.dart';
+import 'widgets/course_card.dart';
 import 'widgets/next_action_card.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -50,6 +52,7 @@ class HomeScreen extends StatelessWidget {
                 blueprint: aggregator.build(startupKits),
               ),
             ),
+            const SliverToBoxAdapter(child: CourseCard()),
             SliverToBoxAdapter(
               child: Padding(
                 padding: const EdgeInsets.fromLTRB(20, 32, 20, 14),
@@ -61,7 +64,7 @@ class HomeScreen extends StatelessWidget {
                       style: Theme.of(context).textTheme.titleLarge,
                     ),
                     GestureDetector(
-                      onTap: () => Get.toNamed(Routes.modules),
+                      onTap: () => Get.find<ShellController>().setTab(2),
                       child: const Text(
                         'See all  →',
                         style: TextStyle(
@@ -183,7 +186,7 @@ class _HeroHeader extends StatelessWidget {
                         ],
                       ),
                       GestureDetector(
-                        onTap: () => Get.toNamed(Routes.profile),
+                        onTap: () => Get.find<ShellController>().setTab(4),
                         child: Container(
                           width: 46,
                           height: 46,

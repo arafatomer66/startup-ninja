@@ -139,22 +139,26 @@ class _BlueprintScreenState extends State<BlueprintScreen> {
   }
 
   SliverAppBar _buildAppBar(Blueprint blueprint) {
+    final canPop = Navigator.of(context).canPop();
     return SliverAppBar(
       expandedHeight: 168,
       pinned: true,
       backgroundColor: AppColors.primary,
-      leading: GestureDetector(
-        onTap: () => Get.back(),
-        child: Container(
-          margin: const EdgeInsets.all(8),
-          decoration: BoxDecoration(
-            color: Colors.white.withValues(alpha: 0.2),
-            borderRadius: BorderRadius.circular(10),
-          ),
-          child: const Icon(Icons.arrow_back_ios_new_rounded,
-              color: Colors.white, size: 18),
-        ),
-      ),
+      automaticallyImplyLeading: false,
+      leading: canPop
+          ? GestureDetector(
+              onTap: () => Get.back(),
+              child: Container(
+                margin: const EdgeInsets.all(8),
+                decoration: BoxDecoration(
+                  color: Colors.white.withValues(alpha: 0.2),
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: const Icon(Icons.arrow_back_ios_new_rounded,
+                    color: Colors.white, size: 18),
+              ),
+            )
+          : null,
       actions: [
         Container(
           margin: const EdgeInsets.only(right: 12, top: 8, bottom: 8),

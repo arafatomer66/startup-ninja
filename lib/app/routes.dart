@@ -1,13 +1,17 @@
 import 'package:get/get.dart';
 import '../modules/splash/splash_screen.dart';
 import '../modules/onboarding/onboarding_screen.dart';
-import '../modules/home/home_screen.dart';
 import '../modules/modules/modules_screen.dart';
 import '../modules/modules/module_detail_screen.dart';
 import '../modules/quiz/quiz_screen.dart';
 import '../modules/profile/profile_screen.dart';
 import '../modules/sections/section_dispatcher.dart';
 import '../modules/blueprint/blueprint_screen.dart';
+import '../modules/course/course_screen.dart';
+import '../modules/course/course_week_screen.dart';
+import '../modules/course/course_lesson_screen.dart';
+import '../modules/course/library_screen.dart';
+import '../modules/shell/shell_screen.dart';
 
 abstract class Routes {
   static const splash = '/';
@@ -19,16 +23,24 @@ abstract class Routes {
   static const profile = '/profile';
   static const section = '/section';
   static const blueprint = '/blueprint';
+  static const course = '/course';
+  static const courseWeek = '/course-week';
+  static const courseLesson = '/course-lesson';
+  static const library = '/library';
 }
 
 final appPages = [
   GetPage(name: Routes.splash, page: () => const SplashScreen()),
   GetPage(name: Routes.onboarding, page: () => const OnboardingScreen()),
-  GetPage(name: Routes.home, page: () => const HomeScreen()),
+  GetPage(name: Routes.home, page: () => const ShellScreen()),
   GetPage(name: Routes.modules, page: () => const ModulesScreen()),
   GetPage(name: Routes.moduleDetail, page: () => const ModuleDetailScreen()),
   GetPage(name: Routes.quiz, page: () => const QuizScreen()),
   GetPage(name: Routes.profile, page: () => const ProfileScreen()),
   GetPage(name: Routes.section, page: () => const SectionDispatcher()),
   GetPage(name: Routes.blueprint, page: () => const BlueprintScreen()),
+  GetPage(name: Routes.course, page: () => const CourseScreen()),
+  GetPage(name: Routes.courseWeek, page: () => const CourseWeekScreen()),
+  GetPage(name: Routes.courseLesson, page: () => const CourseLessonScreen()),
+  GetPage(name: Routes.library, page: () => const LibraryScreen()),
 ];
