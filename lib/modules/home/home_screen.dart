@@ -185,21 +185,43 @@ class _HeroHeader extends StatelessWidget {
                           ),
                         ],
                       ),
-                      GestureDetector(
-                        onTap: () => Get.find<ShellController>().setTab(4),
-                        child: Container(
-                          width: 46,
-                          height: 46,
-                          decoration: BoxDecoration(
-                            color: Colors.white.withValues(alpha: 0.2),
-                            borderRadius: BorderRadius.circular(14),
-                            border: Border.all(
-                              color: Colors.white.withValues(alpha: 0.3),
+                      Row(
+                        children: [
+                          GestureDetector(
+                            onTap: () => Get.toNamed(Routes.search),
+                            child: Container(
+                              width: 46,
+                              height: 46,
+                              decoration: BoxDecoration(
+                                color: Colors.white.withValues(alpha: 0.2),
+                                borderRadius: BorderRadius.circular(14),
+                                border: Border.all(
+                                  color: Colors.white.withValues(alpha: 0.3),
+                                ),
+                              ),
+                              child: const Icon(Icons.search_rounded,
+                                  color: Colors.white, size: 22),
                             ),
                           ),
-                          child: const Icon(Icons.person_rounded,
-                              color: Colors.white, size: 22),
-                        ),
+                          const SizedBox(width: 10),
+                          GestureDetector(
+                            onTap: () =>
+                                Get.find<ShellController>().setTab(4),
+                            child: Container(
+                              width: 46,
+                              height: 46,
+                              decoration: BoxDecoration(
+                                color: Colors.white.withValues(alpha: 0.2),
+                                borderRadius: BorderRadius.circular(14),
+                                border: Border.all(
+                                  color: Colors.white.withValues(alpha: 0.3),
+                                ),
+                              ),
+                              child: const Icon(Icons.person_rounded,
+                                  color: Colors.white, size: 22),
+                            ),
+                          ),
+                        ],
                       ),
                     ],
                   ),

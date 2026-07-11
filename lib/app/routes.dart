@@ -11,6 +11,7 @@ import '../modules/course/course_screen.dart';
 import '../modules/course/course_week_screen.dart';
 import '../modules/course/course_lesson_screen.dart';
 import '../modules/course/library_screen.dart';
+import '../modules/search/search_screen.dart';
 import '../modules/shell/shell_screen.dart';
 
 abstract class Routes {
@@ -27,6 +28,7 @@ abstract class Routes {
   static const courseWeek = '/course-week';
   static const courseLesson = '/course-lesson';
   static const library = '/library';
+  static const search = '/search';
 }
 
 final appPages = [
@@ -43,4 +45,5 @@ final appPages = [
   GetPage(name: Routes.courseWeek, page: () => const CourseWeekScreen()),
   GetPage(name: Routes.courseLesson, page: () => const CourseLessonScreen()),
   GetPage(name: Routes.library, page: () => const LibraryScreen()),
+  GetPage(name: Routes.search, page: () => const SearchScreen()),
 ];

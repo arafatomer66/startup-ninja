@@ -19,7 +19,6 @@ class CourseScreen extends StatelessWidget {
 
     return Obx(() {
       final percent = provider.courseProgress;
-      final current = provider.currentWeek;
 
       return Scaffold(
         backgroundColor: AppColors.background,
@@ -31,7 +30,7 @@ class CourseScreen extends StatelessWidget {
             SliverToBoxAdapter(
               child: Padding(
                 padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
-                child: _ContinueCard(week: current, provider: provider),
+                child: _ContinueCard(provider: provider),
               ),
             ),
             for (final tier in startup101Tiers) ...[
@@ -250,6 +249,20 @@ class _CourseHero extends StatelessWidget {
                   ),
                   const Spacer(),
                   GestureDetector(
+                    onTap: () => Get.toNamed(Routes.search),
+                    child: Container(
+                      width: 36,
+                      height: 36,
+                      margin: const EdgeInsets.only(right: 8),
+                      decoration: BoxDecoration(
+                        color: Colors.white.withValues(alpha: 0.18),
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      child: const Icon(Icons.search_rounded,
+                          color: Colors.white, size: 18),
+                    ),
+                  ),
+                  GestureDetector(
                     onTap: () => Get.toNamed(Routes.library),
                     child: Container(
                       padding: const EdgeInsets.symmetric(
@@ -396,18 +409,55 @@ class _HeroStat extends StatelessWidget {
 }
 
 class _ContinueCard extends StatelessWidget {
-  final CourseWeek week;
   final CourseProgressProvider provider;
 
-  const _ContinueCard({required this.week, required this.provider});
+  const _ContinueCard({required this.provider});
 
   @override
   Widget build(BuildContext context) {
+    final target = provider.continueTarget;
+
+    if (target == null) {
+      return Container(
+        padding: const EdgeInsets.all(AppSpacing.lg),
+        decoration: BoxDecoration(
+          color: AppColors.success.withValues(alpha: 0.08),
+          borderRadius: BorderRadius.circular(AppRadius.xl),
+          border:
+              Border.all(color: AppColors.success.withValues(alpha: 0.45)),
+        ),
+        child: const Row(
+          children: [
+            Icon(Icons.emoji_events_rounded,
+                color: AppColors.success, size: 28),
+            SizedBox(width: AppSpacing.md),
+            Expanded(
+              child: Text(
+                'Course complete — you went from zero to founder. 🎓',
+                style: TextStyle(
+                  fontSize: 14,
+                  fontWeight: FontWeight.w700,
+                  color: AppColors.textPrimary,
+                ),
+              ),
+            ),
+          ],
+        ),
+      );
+    }
+
+    final (week, lessonIndex) = target;
     final tier = tierForWeek(week);
     final started = provider.courseDoneCount > 0;
+    final subtitle = lessonIndex != null
+        ? 'Lesson ${week.number}.${lessonIndex + 1} — ${week.lessons[lessonIndex].title}'
+        : 'Week ${week.number} — finish the workshop & assignment';
 
     return HoverCard(
-      onTap: () => Get.toNamed(Routes.courseWeek, arguments: week),
+      onTap: () => lessonIndex != null
+          ? Get.toNamed(Routes.courseLesson,
+              arguments: {'week': week, 'index': lessonIndex})
+          : Get.toNamed(Routes.courseWeek, arguments: week),
       borderRadius: BorderRadius.circular(AppRadius.xl),
       hoverShadowColor: tier.color,
       child: Container(
@@ -446,7 +496,7 @@ class _ContinueCard extends StatelessWidget {
                   ),
                   const SizedBox(height: 3),
                   Text(
-                    'Week ${week.number} — ${week.title}',
+                    subtitle,
                     style: const TextStyle(
                       fontSize: 14,
                       fontWeight: FontWeight.w700,

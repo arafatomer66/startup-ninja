@@ -76,4 +76,19 @@ class CourseProgressProvider extends GetxService {
         (w) => !isWeekComplete(w),
         orElse: () => allCourseWeeks.last,
       );
+
+  /// Exact resume point: the first incomplete lesson (week, lessonIndex),
+  /// or (week, null) when the lessons are read but workshop/assignment
+  /// remain — meaning the week checklist is the right destination.
+  /// Null when the whole course is complete.
+  (CourseWeek, int?)? get continueTarget {
+    for (final w in allCourseWeeks) {
+      if (isWeekComplete(w)) continue;
+      for (var i = 0; i < w.lessons.length; i++) {
+        if (!isItemDone(w.id, 'lesson.$i')) return (w, i);
+      }
+      return (w, null);
+    }
+    return null;
+  }
 }

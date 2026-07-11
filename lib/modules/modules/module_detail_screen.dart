@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:url_launcher/url_launcher.dart';
 import '../../app/theme.dart';
 import '../../app/routes.dart';
+import '../../data/kit_resources.dart';
+import '../../data/models/course_model.dart';
 import '../../data/models/kit_model.dart';
 import '../../data/models/section_model.dart';
 import '../../data/providers/progress_provider.dart';
@@ -70,6 +73,25 @@ class ModuleDetailScreen extends StatelessWidget {
                       sectionData: sectionData,
                     ),
                     childCount: entry.value.length,
+                  ),
+                ),
+              ),
+            ],
+            // ── Curated external learning resources ────────────────────────
+            if (kitResources.containsKey(kit.id)) ...[
+              SliverToBoxAdapter(
+                child: _GroupHeader(
+                    label: 'Learning Resources', kitColor: kit.color),
+              ),
+              SliverPadding(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                sliver: SliverList(
+                  delegate: SliverChildBuilderDelegate(
+                    (context, i) => _ResourceTile(
+                      resource: kitResources[kit.id]![i],
+                      color: kit.color,
+                    ),
+                    childCount: kitResources[kit.id]!.length,
                   ),
                 ),
               ),
@@ -825,5 +847,74 @@ class LessonReaderScreen extends StatelessWidget {
     }
 
     return RichText(text: TextSpan(children: spans));
+  }
+}
+
+class _ResourceTile extends StatelessWidget {
+  final CourseResource resource;
+  final Color color;
+
+  const _ResourceTile({required this.resource, required this.color});
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: AppSpacing.sm),
+      child: HoverCard(
+        onTap: () => launchUrl(Uri.parse(resource.url),
+            mode: LaunchMode.externalApplication),
+        borderRadius: BorderRadius.circular(AppRadius.md),
+        hoverShadowColor: color,
+        child: Container(
+          padding: const EdgeInsets.symmetric(
+              horizontal: AppSpacing.lg, vertical: AppSpacing.md),
+          decoration: BoxDecoration(
+            color: AppColors.surface,
+            borderRadius: BorderRadius.circular(AppRadius.md),
+            border: Border.all(color: AppColors.border),
+          ),
+          child: Row(
+            children: [
+              Icon(
+                resource.source.toLowerCase().contains('book')
+                    ? Icons.auto_stories_rounded
+                    : Icons.link_rounded,
+                color: color,
+                size: 20,
+              ),
+              const SizedBox(width: AppSpacing.md),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      resource.title,
+                      style: const TextStyle(
+                        fontSize: 13.5,
+                        fontWeight: FontWeight.w700,
+                        letterSpacing: -0.2,
+                        color: AppColors.textPrimary,
+                      ),
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                    const SizedBox(height: 2),
+                    Text(
+                      resource.source,
+                      style: const TextStyle(
+                        fontSize: 11.5,
+                        color: AppColors.textSecondary,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              const Icon(Icons.open_in_new_rounded,
+                  size: 15, color: AppColors.textHint),
+            ],
+          ),
+        ),
+      ),
+    );
   }
 }
