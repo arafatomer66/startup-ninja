@@ -45,6 +45,22 @@ class CourseBook {
   });
 }
 
+/// A real-company story tied to one week's topic — the "how it played
+/// out in the wild" anchor for the week's frameworks.
+class CourseCaseStudy {
+  final String company;
+  final String tagline;
+  final String story;
+  final String takeaway;
+
+  const CourseCaseStudy({
+    required this.company,
+    required this.tagline,
+    required this.story,
+    required this.takeaway,
+  });
+}
+
 class CourseWeek {
   final String id;
   final int number;

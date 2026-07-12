@@ -87,6 +87,16 @@ class CourseWeekScreen extends StatelessWidget {
                 padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
                 child: Column(
                   children: [
+                    if (caseStudyForWeek(week) != null) ...[
+                      FadeSlideIn(
+                        delay: const Duration(milliseconds: 120),
+                        child: _CaseStudyCard(
+                          study: caseStudyForWeek(week)!,
+                          color: tier.color,
+                        ),
+                      ),
+                      const SizedBox(height: AppSpacing.lg),
+                    ],
                     _CheckTile(
                       label: 'Live Workshop',
                       title: 'Build it together',
@@ -379,6 +389,133 @@ class _LessonTile extends StatelessWidget {
             ),
           ],
         ),
+      ),
+    );
+  }
+}
+
+/// Dark spotlight card: the week's real-company story. Deliberately styled
+/// unlike everything else on the page so it reads as an editorial break.
+class _CaseStudyCard extends StatelessWidget {
+  final CourseCaseStudy study;
+  final Color color;
+
+  const _CaseStudyCard({required this.study, required this.color});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: double.infinity,
+      padding: const EdgeInsets.all(AppSpacing.xl),
+      decoration: BoxDecoration(
+        gradient: const LinearGradient(
+          colors: [Color(0xFF1C1644), Color(0xFF2E2566)],
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+        ),
+        borderRadius: BorderRadius.circular(AppRadius.xl),
+        boxShadow: AppShadows.glow(const Color(0xFF1C1644)),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              Container(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+                decoration: BoxDecoration(
+                  color: color.withValues(alpha: 0.35),
+                  borderRadius: BorderRadius.circular(AppRadius.xs),
+                ),
+                child: const Text(
+                  'CASE STUDY',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 10,
+                    fontWeight: FontWeight.w800,
+                    letterSpacing: 1.2,
+                  ),
+                ),
+              ),
+              const Spacer(),
+              Icon(Icons.business_center_rounded,
+                  color: Colors.white.withValues(alpha: 0.4), size: 18),
+            ],
+          ),
+          const SizedBox(height: 14),
+          Text(
+            study.company,
+            style: const TextStyle(
+              color: Colors.white,
+              fontSize: 22,
+              fontWeight: FontWeight.w800,
+              letterSpacing: -0.4,
+            ),
+          ),
+          const SizedBox(height: 3),
+          Text(
+            study.tagline,
+            style: TextStyle(
+              color: Colors.white.withValues(alpha: 0.65),
+              fontSize: 13,
+              fontWeight: FontWeight.w600,
+              fontStyle: FontStyle.italic,
+            ),
+          ),
+          const SizedBox(height: 14),
+          Text(
+            study.story,
+            style: TextStyle(
+              color: Colors.white.withValues(alpha: 0.88),
+              fontSize: 13.5,
+              height: 1.65,
+            ),
+          ),
+          const SizedBox(height: 16),
+          Container(
+            width: double.infinity,
+            padding: const EdgeInsets.all(AppSpacing.lg),
+            decoration: BoxDecoration(
+              color: Colors.white.withValues(alpha: 0.08),
+              borderRadius: BorderRadius.circular(AppRadius.md),
+              border: Border.all(
+                color: Colors.white.withValues(alpha: 0.12),
+              ),
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Row(
+                  children: [
+                    Icon(Icons.bolt_rounded,
+                        color: AppColors.warning, size: 16),
+                    SizedBox(width: 6),
+                    Text(
+                      'STEAL THIS',
+                      style: TextStyle(
+                        color: AppColors.warning,
+                        fontSize: 10,
+                        fontWeight: FontWeight.w800,
+                        letterSpacing: 1.2,
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 8),
+                Text(
+                  study.takeaway,
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontSize: 13,
+                    fontWeight: FontWeight.w600,
+                    height: 1.55,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }

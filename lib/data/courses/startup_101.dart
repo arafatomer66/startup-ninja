@@ -1,4 +1,5 @@
 import '../models/course_model.dart';
+import 'startup_101/case_studies.dart';
 import 'startup_101/tier0.dart';
 import 'startup_101/tier1.dart';
 import 'startup_101/tier2.dart';
@@ -22,3 +23,7 @@ List<CourseWeek> get allCourseWeeks =>
 
 CourseTier tierForWeek(CourseWeek week) =>
     startup101Tiers.firstWhere((t) => t.weeks.contains(week));
+
+/// Real-company story for the week, or null if none is defined.
+CourseCaseStudy? caseStudyForWeek(CourseWeek week) =>
+    courseCaseStudies[week.id];

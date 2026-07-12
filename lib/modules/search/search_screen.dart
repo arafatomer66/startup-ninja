@@ -90,6 +90,17 @@ class _SearchScreenState extends State<SearchScreen> {
               mode: LaunchMode.externalApplication),
         ));
       }
+      final study = caseStudyForWeek(week);
+      if (study != null) {
+        items.add(_SearchItem(
+          title: '${study.company} — ${study.tagline}',
+          subtitle: 'Case study · Week ${week.number}: ${week.title}',
+          group: 'Case studies',
+          icon: Icons.business_center_rounded,
+          color: tier.color,
+          onTap: () => Get.toNamed(Routes.courseWeek, arguments: week),
+        ));
+      }
     }
 
     for (final kit in startupKits) {
