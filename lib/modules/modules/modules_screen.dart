@@ -4,6 +4,7 @@ import '../../app/theme.dart';
 import '../../app/routes.dart';
 import '../../data/models/kit_model.dart';
 import '../../data/providers/progress_provider.dart';
+import '../../widgets/motion.dart';
 import '../../widgets/responsive.dart';
 
 class ModulesScreen extends StatelessWidget {
@@ -35,8 +36,10 @@ class ModulesScreen extends StatelessWidget {
                   mainAxisExtent: 220,
                 ),
                 delegate: SliverChildBuilderDelegate(
-                  (context, i) =>
-                      _KitTile(kit: startupKits[i], provider: provider),
+                  (context, i) => FadeSlideIn(
+                    delay: Duration(milliseconds: 40 * i),
+                    child: _KitTile(kit: startupKits[i], provider: provider),
+                  ),
                   childCount: startupKits.length,
                 ),
               ),

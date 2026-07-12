@@ -10,6 +10,20 @@ import 'data/services/blueprint_aggregator.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  // Release builds paint a bare gray box on build errors — swap in a
+  // readable card so failures on user devices can actually be reported.
+  ErrorWidget.builder = (details) => Material(
+        color: const Color(0xFFFFF2F2),
+        child: Center(
+          child: Padding(
+            padding: const EdgeInsets.all(24),
+            child: SelectableText(
+              'Something went wrong here.\n\n${details.exceptionAsString()}',
+              style: const TextStyle(fontSize: 12, color: Color(0xFF7A1F2B)),
+            ),
+          ),
+        ),
+      );
   await GetStorage.init();
   Get.put(ProgressProvider());
   Get.put(SectionDataProvider());

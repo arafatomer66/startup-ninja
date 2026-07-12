@@ -7,8 +7,8 @@ import '../home/home_screen.dart';
 import '../modules/modules_screen.dart';
 import '../profile/profile_screen.dart';
 
-/// Bottom-nav shell. Tabs keep their state via IndexedStack; detail
-/// screens (week, lesson, tracker, kit) push on top as full routes.
+/// Bottom-nav shell. Detail screens (week, lesson, tracker, kit) push on
+/// top as full routes.
 class ShellController extends GetxController {
   final tab = 0.obs;
 
@@ -18,22 +18,42 @@ class ShellController extends GetxController {
 class ShellScreen extends StatelessWidget {
   const ShellScreen({super.key});
 
+  static const _tabs = [
+    HomeScreen(),
+    CourseScreen(),
+    ModulesScreen(),
+    BlueprintScreen(),
+    ProfileScreen(),
+  ];
+
   @override
   Widget build(BuildContext context) {
     final controller = Get.put(ShellController(), permanent: true);
 
+    // Each switch rebuilds the tab (not IndexedStack) so the staggered
+    // entrance animations replay every visit — hidden tabs would otherwise
+    // play them once at startup where nobody sees them.
     return Obx(
       () => Scaffold(
         backgroundColor: AppColors.background,
-        body: IndexedStack(
-          index: controller.tab.value,
-          children: const [
-            HomeScreen(),
-            CourseScreen(),
-            ModulesScreen(),
-            BlueprintScreen(),
-            ProfileScreen(),
-          ],
+        body: AnimatedSwitcher(
+          duration: const Duration(milliseconds: 240),
+          switchInCurve: Curves.easeOutCubic,
+          switchOutCurve: Curves.easeIn,
+          transitionBuilder: (child, animation) => FadeTransition(
+            opacity: animation,
+            child: SlideTransition(
+              position: Tween(
+                begin: const Offset(0, 0.01),
+                end: Offset.zero,
+              ).animate(animation),
+              child: child,
+            ),
+          ),
+          child: KeyedSubtree(
+            key: ValueKey(controller.tab.value),
+            child: _tabs[controller.tab.value],
+          ),
         ),
         bottomNavigationBar: _NavBar(controller: controller),
       ),
