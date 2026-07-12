@@ -24,14 +24,16 @@ class HomeScreen extends StatelessWidget {
 
     return Obx(() {
       final total = startupKits.fold<int>(
-          0, (s, k) => s + provider.getKitTotalCount(k));
+        0,
+        (s, k) => s + provider.getKitTotalCount(k),
+      );
       final completed = startupKits.fold<int>(
-          0, (s, k) => s + provider.getKitCompletedCount(k));
+        0,
+        (s, k) => s + provider.getKitCompletedCount(k),
+      );
       final percent = total > 0 ? (completed / total).clamp(0.0, 1.0) : 0.0;
 
-      final cols = Breakpoints.isDesktop(context)
-          ? 2
-          : 1;
+      final cols = Breakpoints.isDesktop(context) ? 2 : 1;
 
       return Scaffold(
         backgroundColor: AppColors.background,
@@ -53,15 +55,16 @@ class HomeScreen extends StatelessWidget {
               child: FadeSlideIn(
                 delay: const Duration(milliseconds: 40),
                 child: _QuickStats(
-                    completed: completed, total: total, percent: percent),
+                  completed: completed,
+                  total: total,
+                  percent: percent,
+                ),
               ),
             ),
             SliverToBoxAdapter(
               child: FadeSlideIn(
                 delay: const Duration(milliseconds: 90),
-                child: NextActionCard(
-                  blueprint: aggregator.build(startupKits),
-                ),
+                child: NextActionCard(blueprint: aggregator.build(startupKits)),
               ),
             ),
             const SliverToBoxAdapter(
@@ -188,27 +191,30 @@ class _HeroHeader extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            'Hey, $userName 👋',
-                            style: const TextStyle(
-                              color: Colors.white,
-                              fontSize: 22,
-                              fontWeight: FontWeight.w800,
-                              letterSpacing: -0.3,
+                      FadeSlideIn(
+                        offset: 14,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'Hey, $userName 👋',
+                              style: const TextStyle(
+                                color: Colors.white,
+                                fontSize: 22,
+                                fontWeight: FontWeight.w800,
+                                letterSpacing: -0.3,
+                              ),
                             ),
-                          ),
-                          const SizedBox(height: 3),
-                          Text(
-                            'Ready to build your startup?',
-                            style: TextStyle(
-                              color: Colors.white.withValues(alpha: 0.75),
-                              fontSize: 14,
+                            const SizedBox(height: 3),
+                            Text(
+                              'Ready to build your startup?',
+                              style: TextStyle(
+                                color: Colors.white.withValues(alpha: 0.75),
+                                fontSize: 14,
+                              ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                       Row(
                         children: [
@@ -224,14 +230,16 @@ class _HeroHeader extends StatelessWidget {
                                   color: Colors.white.withValues(alpha: 0.3),
                                 ),
                               ),
-                              child: const Icon(Icons.search_rounded,
-                                  color: Colors.white, size: 22),
+                              child: const Icon(
+                                Icons.search_rounded,
+                                color: Colors.white,
+                                size: 22,
+                              ),
                             ),
                           ),
                           const SizedBox(width: 10),
                           GestureDetector(
-                            onTap: () =>
-                                Get.find<ShellController>().setTab(4),
+                            onTap: () => Get.find<ShellController>().setTab(4),
                             child: Container(
                               width: 46,
                               height: 46,
@@ -242,8 +250,11 @@ class _HeroHeader extends StatelessWidget {
                                   color: Colors.white.withValues(alpha: 0.3),
                                 ),
                               ),
-                              child: const Icon(Icons.person_rounded,
-                                  color: Colors.white, size: 22),
+                              child: const Icon(
+                                Icons.person_rounded,
+                                color: Colors.white,
+                                size: 22,
+                              ),
                             ),
                           ),
                         ],
@@ -251,92 +262,106 @@ class _HeroHeader extends StatelessWidget {
                     ],
                   ),
                   const SizedBox(height: 16),
-                  Row(
-                    children: [
-                      _HeroChip(
-                        icon: Icons.local_fire_department_rounded,
-                        iconColor: streak > 0
-                            ? const Color(0xFFFFC93C)
-                            : Colors.white54,
-                        text: streak > 0
-                            ? '$streak day streak${streakDoneToday ? '' : ' · finish a lesson to keep it'}'
-                            : 'No streak yet — learn today',
-                      ),
-                      const SizedBox(width: 8),
-                      _HeroChip(
-                        icon: Icons.bolt_rounded,
-                        iconColor: Colors.white,
-                        text: '$xp XP',
-                      ),
-                    ],
+                  FadeSlideIn(
+                    delay: const Duration(milliseconds: 100),
+                    offset: 14,
+                    child: Row(
+                      children: [
+                        _HeroChip(
+                          icon: Icons.local_fire_department_rounded,
+                          iconColor: streak > 0
+                              ? const Color(0xFFFFC93C)
+                              : Colors.white54,
+                          text: streak > 0
+                              ? '$streak day streak${streakDoneToday ? '' : ' · finish a lesson to keep it'}'
+                              : 'No streak yet — learn today',
+                        ),
+                        const SizedBox(width: 8),
+                        _HeroChip(
+                          icon: Icons.bolt_rounded,
+                          iconColor: Colors.white,
+                          text: '$xp XP',
+                        ),
+                      ],
+                    ),
                   ),
                   const SizedBox(height: 16),
                   // Progress card
-                  Container(
-                    padding: const EdgeInsets.all(18),
-                    decoration: BoxDecoration(
-                      color: Colors.white.withValues(alpha: 0.15),
-                      borderRadius: BorderRadius.circular(20),
-                      border: Border.all(
-                          color: Colors.white.withValues(alpha: 0.2)),
-                    ),
-                    child: Row(
-                      children: [
-                        Expanded(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                'Overall Progress',
-                                style: TextStyle(
-                                  color: Colors.white.withValues(alpha: 0.8),
-                                  fontSize: 12,
-                                  fontWeight: FontWeight.w600,
-                                  letterSpacing: 0.3,
-                                ),
-                              ),
-                              const SizedBox(height: 6),
-                              Text(
-                                '$completed of $total items',
-                                style: const TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.w800,
-                                  letterSpacing: -0.3,
-                                ),
-                              ),
-                              const SizedBox(height: 12),
-                              ClipRRect(
-                                borderRadius: BorderRadius.circular(6),
-                                child: LinearProgressIndicator(
-                                  value: percent,
-                                  backgroundColor:
-                                      Colors.white.withValues(alpha: 0.25),
-                                  valueColor:
-                                      const AlwaysStoppedAnimation(Colors.white),
-                                  minHeight: 8,
-                                ),
-                              ),
-                            ],
-                          ),
+                  FadeSlideIn(
+                    delay: const Duration(milliseconds: 180),
+                    offset: 20,
+                    child: Container(
+                      padding: const EdgeInsets.all(18),
+                      decoration: BoxDecoration(
+                        color: Colors.white.withValues(alpha: 0.15),
+                        borderRadius: BorderRadius.circular(20),
+                        border: Border.all(
+                          color: Colors.white.withValues(alpha: 0.2),
                         ),
-                        const SizedBox(width: 20),
-                        CircularPercentIndicator(
-                          radius: 44,
-                          lineWidth: 6,
-                          percent: percent,
-                          center: Text(
-                            '${(percent * 100).toInt()}%',
-                            style: const TextStyle(
-                              color: Colors.white,
-                              fontSize: 14,
-                              fontWeight: FontWeight.w800,
+                      ),
+                      child: Row(
+                        children: [
+                          Expanded(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'Overall Progress',
+                                  style: TextStyle(
+                                    color: Colors.white.withValues(alpha: 0.8),
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.w600,
+                                    letterSpacing: 0.3,
+                                  ),
+                                ),
+                                const SizedBox(height: 6),
+                                Text(
+                                  '$completed of $total items',
+                                  style: const TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.w800,
+                                    letterSpacing: -0.3,
+                                  ),
+                                ),
+                                const SizedBox(height: 12),
+                                ClipRRect(
+                                  borderRadius: BorderRadius.circular(6),
+                                  child: SweepingBar(
+                                    value: percent,
+                                    color: Colors.white,
+                                    backgroundColor: Colors.white.withValues(
+                                      alpha: 0.25,
+                                    ),
+                                    minHeight: 8,
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
-                          progressColor: Colors.white,
-                          backgroundColor: Colors.white.withValues(alpha: 0.25),
-                        ),
-                      ],
+                          const SizedBox(width: 20),
+                          CircularPercentIndicator(
+                            radius: 44,
+                            lineWidth: 6,
+                            percent: percent,
+                            animation: true,
+                            animationDuration: 1100,
+                            circularStrokeCap: CircularStrokeCap.round,
+                            center: Text(
+                              '${(percent * 100).toInt()}%',
+                              style: const TextStyle(
+                                color: Colors.white,
+                                fontSize: 14,
+                                fontWeight: FontWeight.w800,
+                              ),
+                            ),
+                            progressColor: Colors.white,
+                            backgroundColor: Colors.white.withValues(
+                              alpha: 0.25,
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ],
@@ -405,8 +430,7 @@ class _QuickStats extends StatelessWidget {
   Widget build(BuildContext context) {
     final remaining = total - completed;
     final kitsStarted = startupKits
-        .where((k) =>
-            Get.find<ProgressProvider>().getKitProgressFor(k) > 0)
+        .where((k) => Get.find<ProgressProvider>().getKitProgressFor(k) > 0)
         .length;
 
     return Padding(
@@ -414,21 +438,21 @@ class _QuickStats extends StatelessWidget {
       child: Row(
         children: [
           _StatTile(
-            value: '$completed',
+            value: completed,
             label: 'Completed',
             color: AppColors.success,
             icon: Icons.check_circle_rounded,
           ),
           const SizedBox(width: 12),
           _StatTile(
-            value: '$remaining',
+            value: remaining,
             label: 'Remaining',
             color: AppColors.warning,
             icon: Icons.pending_rounded,
           ),
           const SizedBox(width: 12),
           _StatTile(
-            value: '$kitsStarted',
+            value: kitsStarted,
             label: 'Kits Started',
             color: AppColors.primary,
             icon: Icons.layers_rounded,
@@ -440,7 +464,7 @@ class _QuickStats extends StatelessWidget {
 }
 
 class _StatTile extends StatelessWidget {
-  final String value;
+  final int value;
   final String label;
   final Color color;
   final IconData icon;
@@ -481,8 +505,8 @@ class _StatTile extends StatelessWidget {
               child: Icon(icon, color: color, size: 18),
             ),
             const SizedBox(height: 8),
-            Text(
-              value,
+            CountUp(
+              value: value,
               style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.w800,
@@ -576,12 +600,16 @@ class _KitCard extends StatelessWidget {
                             if (isCompleted)
                               Container(
                                 padding: const EdgeInsets.symmetric(
-                                    horizontal: 8, vertical: 3),
+                                  horizontal: 8,
+                                  vertical: 3,
+                                ),
                                 decoration: BoxDecoration(
-                                  color: AppColors.success
-                                      .withValues(alpha: 0.12),
-                                  borderRadius:
-                                      BorderRadius.circular(AppRadius.xs),
+                                  color: AppColors.success.withValues(
+                                    alpha: 0.12,
+                                  ),
+                                  borderRadius: BorderRadius.circular(
+                                    AppRadius.xs,
+                                  ),
                                 ),
                                 child: const Text(
                                   'Done',
@@ -616,19 +644,17 @@ class _KitCard extends StatelessWidget {
             // Progress bar at bottom
             Container(
               height: 42,
-              decoration: BoxDecoration(
-                color: AppColors.background,
-              ),
+              decoration: BoxDecoration(color: AppColors.background),
               padding: const EdgeInsets.symmetric(horizontal: AppSpacing.lg),
               child: Row(
                 children: [
                   Expanded(
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(6),
-                      child: LinearProgressIndicator(
+                      child: SweepingBar(
                         value: progress,
+                        color: kit.color,
                         backgroundColor: kit.color.withValues(alpha: 0.1),
-                        valueColor: AlwaysStoppedAnimation(kit.color),
                         minHeight: 5,
                       ),
                     ),

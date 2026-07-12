@@ -452,8 +452,8 @@ class _HeroStat extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          value,
+        CountUp(
+          value: int.tryParse(value) ?? 0,
           style: const TextStyle(
             color: Colors.white,
             fontSize: 20,
@@ -678,6 +678,9 @@ class _WeekCard extends StatelessWidget {
               radius: 26,
               lineWidth: 4,
               percent: progress,
+              animation: true,
+              animationDuration: 800,
+              animateFromLastPercent: true,
               circularStrokeCap: CircularStrokeCap.round,
               center: isComplete
                   ? Icon(Icons.check_rounded, color: tier.color, size: 20)

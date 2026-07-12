@@ -12,8 +12,8 @@ class FadeSlideIn extends StatefulWidget {
     super.key,
     required this.child,
     this.delay = Duration.zero,
-    this.duration = const Duration(milliseconds: 380),
-    this.offset = 18,
+    this.duration = const Duration(milliseconds: 450),
+    this.offset = 32,
   });
 
   @override
@@ -53,10 +53,68 @@ class _FadeSlideInState extends State<FadeSlideIn>
         opacity: _curve.value,
         child: Transform.translate(
           offset: Offset(0, (1 - _curve.value) * widget.offset),
-          child: child,
+          child: Transform.scale(
+            scale: 0.95 + 0.05 * _curve.value,
+            child: child,
+          ),
         ),
       ),
       child: widget.child,
+    );
+  }
+}
+
+/// Number that counts up from zero when it appears — stat tiles, XP.
+class CountUp extends StatelessWidget {
+  final int value;
+  final TextStyle? style;
+  final Duration duration;
+
+  const CountUp({
+    super.key,
+    required this.value,
+    this.style,
+    this.duration = const Duration(milliseconds: 900),
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return TweenAnimationBuilder<double>(
+      tween: Tween(begin: 0, end: value.toDouble()),
+      duration: duration,
+      curve: Curves.easeOutCubic,
+      builder: (context, v, _) => Text('${v.round()}', style: style),
+    );
+  }
+}
+
+/// Progress bar that sweeps from zero to its value on entrance.
+class SweepingBar extends StatelessWidget {
+  final double value;
+  final Color color;
+  final Color backgroundColor;
+  final double minHeight;
+
+  const SweepingBar({
+    super.key,
+    required this.value,
+    required this.color,
+    required this.backgroundColor,
+    this.minHeight = 6,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return TweenAnimationBuilder<double>(
+      tween: Tween(begin: 0, end: value),
+      duration: const Duration(milliseconds: 1100),
+      curve: Curves.easeOutCubic,
+      builder: (context, v, _) => LinearProgressIndicator(
+        value: v,
+        backgroundColor: backgroundColor,
+        valueColor: AlwaysStoppedAnimation(color),
+        minHeight: minHeight,
+      ),
     );
   }
 }

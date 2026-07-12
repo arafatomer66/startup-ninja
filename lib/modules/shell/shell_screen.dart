@@ -37,14 +37,14 @@ class ShellScreen extends StatelessWidget {
       () => Scaffold(
         backgroundColor: AppColors.background,
         body: AnimatedSwitcher(
-          duration: const Duration(milliseconds: 240),
+          duration: const Duration(milliseconds: 300),
           switchInCurve: Curves.easeOutCubic,
           switchOutCurve: Curves.easeIn,
           transitionBuilder: (child, animation) => FadeTransition(
             opacity: animation,
             child: SlideTransition(
               position: Tween(
-                begin: const Offset(0, 0.01),
+                begin: const Offset(0, 0.04),
                 end: Offset.zero,
               ).animate(animation),
               child: child,
@@ -145,8 +145,8 @@ class _NavItem extends StatelessWidget {
               // Key on `active` so selecting a tab replays the elastic pop.
               child: TweenAnimationBuilder<double>(
                 key: ValueKey(active),
-                tween: Tween(begin: active ? 0.55 : 1.0, end: 1.0),
-                duration: const Duration(milliseconds: 500),
+                tween: Tween(begin: active ? 0.3 : 1.0, end: 1.0),
+                duration: const Duration(milliseconds: 600),
                 curve: Curves.elasticOut,
                 builder: (context, scale, child) =>
                     Transform.scale(scale: scale, child: child),
