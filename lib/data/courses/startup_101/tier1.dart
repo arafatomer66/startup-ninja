@@ -38,9 +38,19 @@ const tier1 = CourseTier(
                   "• Can the product serve customer #10,000 with little extra cost per customer? Scalable → startup territory.\n• Does revenue require your hands on every delivery? That's a business you run, not one that scales.\n• Do you want a livelihood or an outsized outcome? Be honest — the funding path, hiring, and pace all follow from this.\n• Neither answer is wrong. Choosing consciously is what matters.",
             ),
             LessonBlock(
+              heading: 'Common mistakes',
+              body:
+                  "• Raising venture money for a lifestyle business — VCs need outlier outcomes, so their money commits you to a growth pace a steady-profit model can't sustain.\n• Running a scalable idea like a shop — pricing for early profit and refusing to experiment can starve a product that needed a year of searching before it clicked.\n• Copying startup theater without the model — pitch decks and demo days don't make an hourly-billed agency scalable; only marginal cost per customer does.\n• Choosing by identity instead of economics — 'I'm a founder' is not a strategy; run the customer-#10,000 test and let the answer pick your game.",
+            ),
+            LessonBlock(
               heading: 'Key takeaway',
               body:
                   "A startup is a search, not a smaller version of a big company. Know which game you're playing before you pick your strategy, funding, and pace.",
+            ),
+            LessonBlock(
+              heading: 'Do this now',
+              body:
+                  "Open a note and complete this sentence: 'I am building a [startup / small business] because serving customer #10,000 would cost me [almost nothing / the same effort as customer #10].' Pin it at the top of your planning doc. Revisit it after Week 2's interviews and see if the evidence agrees.",
             ),
           ],
         ),
@@ -66,9 +76,19 @@ const tier1 = CourseTier(
                   "• Write your real number: how many months can you go without income, and what happens on the day after?\n• Name your dip behavior: when a project went badly before, what did you actually do — push through, hide, or pivot?\n• Build the resilience basics now: sleep, exercise, one person you can be fully honest with.\n• Schedule a monthly 'kill review': one hour where you argue against your own idea using evidence.",
             ),
             LessonBlock(
+              heading: 'Common mistakes',
+              body:
+                  "• Counting best-case runway — you always spend faster than planned; compute burn from your last three months of actual expenses, then add 20% for surprises.\n• Treating the dip as a personal failure — nearly every founder hits it around months four to nine; a plan written in advance beats willpower summoned in the moment.\n• Confiding in no one — isolation quietly warps judgment; one brutally honest peer catches the drift you can no longer see in yourself.\n• Skipping the kill review because things 'feel fine' — feelings lag evidence by months; put it on the calendar and run it regardless of mood.",
+            ),
+            LessonBlock(
               heading: 'Key takeaway',
               body:
                   "Your startup can only be as honest as you are with yourself. Know your runway, know your dip behavior, and build the support system before you need it.",
+            ),
+            LessonBlock(
+              heading: 'Do this now',
+              body:
+                  "Open your banking app and calculate your real monthly spend from the last three months — not the frugal number you hope for. Divide your savings by it and write the resulting runway (in months) at the top of your planning doc. Then message one person you trust and ask them to be your monthly honesty check.",
             ),
           ],
         ),
@@ -93,9 +113,19 @@ const tier1 = CourseTier(
                   "• 'No market need' is prevented in Weeks 2–3 of this course: evidence before building.\n• 'Ran out of cash' is prevented in Weeks 7 and 13: unit economics and cash-flow forecasting.\n• 'Wrong team' is prevented in Week 11: deliberate hiring and co-founder agreements.\n• Read two real post-mortems in your industry this week — pattern-match against your own plan.",
             ),
             LessonBlock(
+              heading: 'Common mistakes',
+              body:
+                  "• Reading post-mortems as entertainment — extract the single decision that killed each company and ask when you'll face the same fork; a story you can't act on taught you nothing.\n• Assuming 'no market need' can't happen to you because friends liked the idea — friends are the worst dataset in startups; Week 2 replaces them with evidence.\n• Guarding the idea instead of the execution — demanding NDAs before coffee chats costs you the feedback that prevents the real killers, protecting against a theft that almost never happens.\n• Checking cash quarterly instead of monthly — the 'suddenly' in 'slowly, then suddenly' is usually just a skipped cash check; runway erodes in months, not years.",
+            ),
+            LessonBlock(
               heading: 'Key takeaway',
               body:
                   "Startups rarely die of murder; they die of self-inflicted wounds with visible early symptoms. Learn the symptoms now so you can catch them in your own company later.",
+            ),
+            LessonBlock(
+              heading: 'Do this now',
+              body:
+                  "Search '[your industry] startup shutdown post-mortem' and read two of them. For each, write one sentence naming the killer — no market need, cash, team, competition. Then note which of the two failure modes your current plan is most exposed to.",
             ),
           ],
         ),
@@ -120,9 +150,19 @@ const tier1 = CourseTier(
                   "• State your startup without mentioning your solution. Can you? If every sentence starts with the product, that's a warning.\n• Ask: if a better solution to this problem appeared tomorrow, would I switch to building that? A real problem-founder says yes.\n• List three pieces of evidence that would convince you to stop. If nothing could, you're in love with the idea.\n• Rewrite your one-liner as: [who] struggles with [problem] costing them [what].",
             ),
             LessonBlock(
+              heading: 'Common mistakes',
+              body:
+                  "• Writing the one-liner product-first — 'an app that…' trains you to defend features; lead with who hurts and what it costs them, and the product becomes negotiable.\n• Treating a pivot as failure — a Dhaka founder who set out to build a grocery-delivery app and discovered shopkeepers' real pain was tracking supplier credit didn't fail; the problem steered them to the money.\n• Having no kill criteria — if no possible evidence could stop you, you're not running experiments, you're collecting decoration for a decision already made.\n• Confusing persistence with attachment — persist stubbornly on the problem, iterate ruthlessly on the solution; reversing those two is how years get wasted.",
+            ),
+            LessonBlock(
               heading: 'Key takeaway',
               body:
                   "Fall in love with the problem and stay promiscuous about solutions. The founders who win are the ones evidence can still steer.",
+            ),
+            LessonBlock(
+              heading: 'Do this now',
+              body:
+                  "Rewrite your startup one-liner as '[who] struggles with [problem], costing them [time/money/reputation]' — without naming your product once. Then list the three pieces of evidence that would convince you to stop. Save both where your monthly kill review will find them.",
             ),
           ],
         ),
@@ -183,9 +223,19 @@ const tier1 = CourseTier(
                   "• Look where money already leaks: manual workarounds, spreadsheets held together with tape, jobs people hate paying for.\n• Watch behavior, not words: what do people in your target group already pay for, botch, or complain about repeatedly?\n• Mine your own edge: problems you've lived (your industry, your community) come with insight competitors can't Google.\n• Score every candidate: frequent? urgent? expensive? Two of three minimum.",
             ),
             LessonBlock(
+              heading: 'Common mistakes',
+              body:
+                  "• Chasing problems you find interesting instead of ones people pay to solve — your curiosity is a bonus; their existing spend is the signal.\n• Mistaking a complaint for a problem — people vent about plenty they'd never pay to fix; look for what they've already acted on, not what they grumble about.\n• Picking infrequent pain — a problem that surfaces once a year can't sustain habit, retention, or word of mouth, no matter how acute it feels in the moment.\n• Skipping the written score — every idea feels frequent, urgent, and expensive from inside your own head; force each candidate through the three-question filter on paper.",
+            ),
+            LessonBlock(
               heading: 'Key takeaway',
               body:
                   "Hunt for pain that is frequent, urgent, and expensive — then verify people are already trying (and failing) to solve it. Existing struggle is the best predictor of future payment.",
+            ),
+            LessonBlock(
+              heading: 'Do this now',
+              body:
+                  "List five problems you've personally witnessed in your industry or community. Score each 0–2 on frequent, urgent, and expensive — six points maximum. Carry the top scorer into this week's interviews and park the rest.",
             ),
           ],
         ),
@@ -210,9 +260,19 @@ const tier1 = CourseTier(
                   "• Open with their world: 'Walk me through the last time you dealt with [problem area].'\n• Dig into specifics: What did it cost? Who else was involved? What did you try?\n• Never mention your solution until the final minutes — if at all.\n• Ask 'what have you tried?' — past attempts are the strongest evidence of real pain.\n• Log every interview the same day: exact quotes, not summaries.",
             ),
             LessonBlock(
+              heading: 'Common mistakes',
+              body:
+                  "• Pitching in the first minute — the moment they know your idea, every answer bends toward politeness; keep the solution for the final minutes or skip it entirely.\n• Asking hypotheticals — 'would you use…?' measures kindness, not demand; ask what they actually did last Tuesday and what it cost them.\n• Interviewing only friends and family — they'll protect your feelings; recruit strangers who genuinely own the problem, even if it takes ten awkward messages.\n• Reconstructing interviews from memory days later — you'll remember the flattering parts and lose the exact objections; log verbatim quotes the same day.",
+            ),
+            LessonBlock(
               heading: 'Key takeaway',
               body:
                   "Interview about their past behavior, not your future product. The truth lives in what people have already done, spent, and tried.",
+            ),
+            LessonBlock(
+              heading: 'Do this now',
+              body:
+                  "Write a five-question interview script that opens with 'Walk me through the last time you dealt with [problem area].' Then message three people who live with the problem and ask for 15 minutes this week. Booking the calls is today's win; running them is this week's.",
             ),
           ],
         ),
@@ -237,9 +297,19 @@ const tier1 = CourseTier(
                   "• Strong signal: they currently pay for an alternative, they've built a workaround, they ask 'when can I have it?', they introduce you to others unprompted.\n• Weak signal: compliments, feature suggestions, 'you should talk to…' with no intro, any sentence about the hypothetical future.\n• Commitment is the currency: time (a follow-up meeting), reputation (an intro), or money (a deposit). Ask for one at the end of every good conversation.",
             ),
             LessonBlock(
+              heading: 'Common mistakes',
+              body:
+                  "• Counting compliments as validation — 'sounds great!' predicts nothing; only facts about their life and commitments of time, reputation, or money count as data.\n• Accepting 'I'd definitely buy it' — future promises cost nothing to make; convert them on the spot by asking for a deposit, an intro, or a scheduled follow-up.\n• Letting 'everyone needs this' slide past — generic claims mean the conversation has drifted from their life; steer back with 'when did YOU last deal with this?'\n• Ending good conversations without an ask — if you never request a commitment, you never find out whether the enthusiasm was real; always close with a concrete next step.",
+            ),
+            LessonBlock(
               heading: 'Key takeaway',
               body:
                   "Ignore opinions about your idea; collect facts about their life and evidence of commitment. If they won't give time, reputation, or money — the compliment was the whole purchase.",
+            ),
+            LessonBlock(
+              heading: 'Do this now',
+              body:
+                  "Take your interview notes — or any pitch conversations you've had so far — and strike through every compliment, generic claim, and future promise. What survives is past behavior, money spent, and workarounds built: your actual evidence. Count the surviving items and write the number down.",
             ),
           ],
         ),
@@ -264,9 +334,19 @@ const tier1 = CourseTier(
                   "• Surveys: short, behavior-focused ('how do you currently…?'), never 'would you use…?'. End by asking for a 15-minute call.\n• Landing page: one clear promise, one call-to-action, drive 100+ targeted visitors, measure conversion. Under 2% is a warning; over 10% is a green light.\n• Fake door: 'Get started' button → 'We're launching soon, leave your email.' Clicks are intent; emails are commitment.\n• Set the success threshold before you launch the test — or you'll rationalize any result.",
             ),
             LessonBlock(
+              heading: 'Common mistakes',
+              body:
+                  "• Driving random traffic — 500 untargeted visitors tell you nothing; a garments supplier testing a digital order-tracking tool should post in merchandisers' Facebook groups, not boost to all of Bangladesh.\n• Setting the success bar after the results arrive — you'll rationalize any number into a win; write the pass/fail threshold down before the test goes live.\n• Measuring vanity actions — page views, likes, and shares aren't intent; only clicks on 'buy', submitted emails, and deposits count as demand.\n• Building the full product 'to test it properly' — the entire point is spending days instead of months; a one-page promise with a button is enough to measure intent.",
+            ),
+            LessonBlock(
               heading: 'Key takeaway',
               body:
                   "Validate with actions, not opinions — and decide what number counts as success before you run the experiment.",
+            ),
+            LessonBlock(
+              heading: 'Do this now',
+              body:
+                  "Draft the one-sentence promise for your landing page: 'We help [who] do [what] without [pain].' Then write your success threshold — for example, 5% of 200 targeted visitors leave an email. The page can wait until tomorrow; the promise and the bar are today's 30 minutes.",
             ),
           ],
         ),
@@ -321,9 +401,19 @@ const tier1 = CourseTier(
                   "• List every incubator, accelerator, angel network, VC, and government program active in your city or industry.\n• For each: what stage do they serve, what do they give, what do they take?\n• Mark the two or three that fit your current stage — idea-stage founders want incubators and grants, not Series A funds.\n• Find one person you could reach at each — the map is people, not logos.",
             ),
             LessonBlock(
+              heading: 'Common mistakes',
+              body:
+                  "• Pitching stage-mismatched players — months spent courting a growth fund with an idea-stage deck is time an incubator would have spent actually helping you.\n• Giving equity for services an incubator offers free — compare what the accelerator actually adds (network, capital, credibility) before signing away 5–7%.\n• Collecting logos instead of people — a list of institutions with no named contact is decoration; the map only works once each row has a human you could message.\n• Treating the map as one-and-done — programs open, close, and change focus every year; a stale map sends you pitching a fund that pivoted to a different sector.",
+            ),
+            LessonBlock(
               heading: 'Key takeaway',
               body:
                   "The ecosystem is a stage-matched supply chain of help. Know every player's give-and-take, and approach the ones built for where you are now.",
+            ),
+            LessonBlock(
+              heading: 'Do this now',
+              body:
+                  "Open a spreadsheet with six columns: name, type, stage served, what they give, what they take, one reachable contact. Fill in five rows for your city or industry today. Star the one row that best matches your current stage — that's your first approach.",
             ),
           ],
         ),
@@ -348,9 +438,19 @@ const tier1 = CourseTier(
                   "• Before pitching anyone, ask: can this business credibly return their fund? If not, seek angels, revenue, or grants instead.\n• Understand the fund's stage and thesis — a Series B fund cannot write your pre-seed check no matter how much they like you.\n• Remember the investor across the table also has investors — their questions are the questions they'll be asked.\n• Decide what YOU want: VC pace is a commitment, not a prize.",
             ),
             LessonBlock(
+              heading: 'Common mistakes',
+              body:
+                  "• Pitching a solid, profitable business as venture-scale — the rejection isn't about quality; if it can't plausibly return the fund, aim at angels, grants, or revenue instead.\n• Ignoring fund stage and thesis — a Series B fintech fund cannot write your pre-seed check for an edtech idea; ten targeted pitches beat a hundred sprayed ones.\n• Treating a VC term sheet as a trophy — the money commits you to their pace and exit timeline; celebrate only if you actually want that race.\n• Hearing 'no' as 'bad business' — it usually means 'wrong portfolio fit'; ask which one it was, then adjust the target list rather than the self-esteem.",
+            ),
+            LessonBlock(
               heading: 'Key takeaway',
               body:
                   "Investors aren't judging whether your business is good — they're judging whether it fits their portfolio math. Learn their model so you can choose and pitch deliberately.",
+            ),
+            LessonBlock(
+              heading: 'Do this now',
+              body:
+                  "Write one honest paragraph answering: could this business plausibly return a whole fund — a 50x outcome? If yes, note the market size and margin logic behind that claim. If no, write your alternative capital path in one line: angels, grants, or customer revenue. Either answer is fine; not knowing is not.",
             ),
           ],
         ),
@@ -375,9 +475,19 @@ const tier1 = CourseTier(
                   "• Search your country's ICT/startup ministry programs, development bank schemes, and innovation funds — list everything with deadlines.\n• Match eligibility honestly: stage, sector, founder profile. Applying wrong wastes the relationship.\n• Budget real time: applications take 10–20 hours. Reuse your Week 4 canvas and Week 13 numbers.\n• Enter credible competitions — even losing builds network, pitch practice, and visibility.",
             ),
             LessonBlock(
+              heading: 'Common mistakes',
+              body:
+                  "• Assuming you're not eligible without checking — programs like Bangladesh's iDEA pre-seed grants or Startup Bangladesh's funding exist precisely for early founders who assume this money isn't for them.\n• Treating the application as a formality — reviewers read hundreds; your Week 2 interview evidence and Week 13 numbers beat adjectives every time.\n• Applying to everything — a mismatched application burns 15 hours and your credibility with an agency you may need next year; qualify hard before you write.\n• Ignoring the deadline calendar — most grant cycles open once or twice a year; missing one costs six months of runway you could have had free.",
+            ),
+            LessonBlock(
               heading: 'Key takeaway',
               body:
                   "Free money exists and almost nobody applies. One funded grant application can be worth a whole seed round in avoided dilution.",
+            ),
+            LessonBlock(
+              heading: 'Do this now',
+              body:
+                  "Spend 30 minutes searching '[your country] startup grant' plus your ICT or innovation ministry's program pages. List every live program with its deadline and eligibility in one document. Mark the single program whose next deadline you can realistically meet — that's your target.",
             ),
           ],
         ),
@@ -402,9 +512,19 @@ const tier1 = CourseTier(
                   "• Give first: share what you're learning, make intros, answer questions in communities. Value out before value in.\n• Build in public: a short regular update on what you're building makes people feel invested in your journey.\n• Attend the rooms where your ecosystem gathers — consistently, not once.\n• Keep a simple contact log: who, where met, what they care about, when you last spoke.",
             ),
             LessonBlock(
+              heading: 'Common mistakes',
+              body:
+                  "• Networking only when fundraising — desperation is legible from the first message; the intro you need in month twelve has to be planted months earlier.\n• Extracting before depositing — asks from strangers get ignored; make two intros or share one genuinely useful insight before requesting anything.\n• Collecting contacts instead of relationships — a hundred business cards lose to ten people who have watched you build for six months.\n• Going dark between events — silence resets the relationship to zero; a short monthly progress update keeps you in mind without asking for anything.",
+            ),
+            LessonBlock(
               heading: 'Key takeaway',
               body:
                   "Network like an investor: small consistent deposits, made early, compounding quietly until the day you need to draw on them.",
+            ),
+            LessonBlock(
+              heading: 'Do this now',
+              body:
+                  "Send one build-in-public update today: three sentences on what you're building and one thing you learned this week, posted to LinkedIn, a founder group, or sent as five direct messages. Then start your contact log with ten names — who, where you met, what they care about.",
             ),
           ],
         ),

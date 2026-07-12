@@ -37,9 +37,19 @@ const tier4 = CourseTier(
                   "• Charge from day one — free pilots don't fund payroll and don't prove demand.\n• Chase early cash flow: services, pre-orders, and annual-payment discounts fund product development.\n• Keep fixed costs brutal: every recurring cost raises the revenue you must earn monthly just to stand still.\n• Reinvest with the unit-economics lens (Week 7): put profit where LTV:CAC is best.",
             ),
             LessonBlock(
+              heading: 'Common mistakes',
+              body:
+                  "• Paying yourself nothing indefinitely — a zero founder salary is hidden burn on your savings and your judgment; put a survival wage in the model from month one.\n• Confusing bootstrapping with not spending — starving a proven acquisition channel to 'stay lean' just slows compounding; frugal on overhead, aggressive on what works.\n• Letting services revenue quietly become the business — consulting funds the product only if you cap it (say, 40% of team hours) and defend the cap.\n• Mixing personal and company money — you lose the one signal bootstrappers live on: whether the business actually funds itself.",
+            ),
+            LessonBlock(
               heading: 'Key takeaway',
               body:
                   "Bootstrapping is choosing customers as your investors. Slower headcount, total ownership — and the option to raise later from strength instead of need.",
+            ),
+            LessonBlock(
+              heading: 'Do this now',
+              body:
+                  "Open your bank statement and compute this month's true profit after a survival wage for yourself. Then write down two ways to pull cash forward — for a Dhaka SMB that might be offering your three best customers 10% off for annual prepay via bKash or bank transfer. Send the first offer before the day ends.",
             ),
           ],
         ),
@@ -64,9 +74,19 @@ const tier4 = CourseTier(
                   "• Raise for a milestone, not a runway: 'this gets us to X metric, which unlocks the next round' beats '18 months of costs.'\n• Match investors to stage and thesis — pitch seed funds at seed, not growth funds.\n• Run it as a process: many conversations in a compressed window creates the competition that moves terms.\n• Model dilution across ALL future rounds before agreeing to any single one.",
             ),
             LessonBlock(
+              heading: 'Common mistakes',
+              body:
+                  "• Trickle-raising one investor at a time — with no parallel conversations there's no urgency, and 'maybe' can stretch for months; compress the process into a 4–6 week window.\n• Pitching the wrong stage — sending a pre-revenue deck to a Series A fund burns the intro and your calendar; check a fund's last five investments before emailing.\n• Optimizing valuation over investor quality — the highest bidder with heavy terms and no help costs more than a fair price from a lead who opens doors.\n• Treating the close as the win — the money starts a milestone clock; if you haven't planned what it must prove, you've bought runway, not progress.",
+            ),
+            LessonBlock(
               heading: 'Key takeaway',
               body:
                   "Rounds are milestone-financing with equity as the price. Know what each round must prove, raise from stage-matched investors, and count dilution to the end of the game.",
+            ),
+            LessonBlock(
+              heading: 'Do this now',
+              body:
+                  "List ten investors whose stage and thesis actually match you — verify by reading their five most recent deals, not their website copy. Next to each, write one warm-intro path (founder they backed, mutual contact, event). That list is the raw material of your future raise.",
             ),
           ],
         ),
@@ -91,9 +111,19 @@ const tier4 = CourseTier(
                   "• Physical/consumer product with an audience? Reward crowdfunding — the campaign is also a marketing engine.\n• Steady monthly revenue? Revenue-based financing scales with your ability to pay.\n• R&D-heavy or impact-driven? Grant pipelines (Week 3 list) before equity.\n• Compare on three axes: cost of capital, control retained, and repayment pressure if things go wrong.",
             ),
             LessonBlock(
+              heading: 'Common mistakes',
+              body:
+                  "• Launching a crowdfunding campaign without an audience — successful campaigns bring their first 30% of backers from an existing list; build the email list for months first or the campaign opens to silence.\n• Taking revenue-based financing on thin margins — the repayment percentage comes off the top, so at 20% gross margin it can consume most of your profit; it fits high-margin recurring revenue, not low-margin trading.\n• Treating grants as free money — reporting burden, payment delays, and mission drift toward what funders want are real costs; price them in before applying.\n• Stacking fixed repayments on unpredictable revenue — debt-shaped money plus lumpy income is how one bad quarter becomes a default.",
+            ),
+            LessonBlock(
               heading: 'Key takeaway',
               body:
                   "Equity is one aisle in the capital supermarket, and the priciest. Match the money's shape to your revenue's shape, and stack sources deliberately.",
+            ),
+            LessonBlock(
+              heading: 'Do this now',
+              body:
+                  "Write down how much capital you actually need in the next 12 months and what it buys. Then map each need to the cheapest source that fits its shape — grant, pre-orders, revenue-based, or equity — and mark the one application or campaign you could start this week.",
             ),
           ],
         ),
@@ -118,9 +148,19 @@ const tier4 = CourseTier(
                   "• Model the exit: at 3 plausible sale prices, compute exactly who gets what under the proposed terms. Surprises here are red flags.\n• Standard is your friend: 1x non-participating preference, broad-based weighted-average anti-dilution. Push back on anything richer.\n• Watch board math: founder control at seed is normal; losing it early is not.\n• Never sign a term sheet without a startup-experienced lawyer. This fee is never the place to save money.",
             ),
             LessonBlock(
+              heading: 'Common mistakes',
+              body:
+                  "• Negotiating only the valuation — a 2x participating preference at a high valuation can pay you less at exit than 1x non-participating at a lower one; the clauses are where the money moves.\n• Signing before modeling the waterfall — if you can't say exactly what you'd take home at three sale prices, you don't know what you're signing.\n• Using the investor's lawyer or a generalist family lawyer — one has a conflict, the other doesn't know what 'broad-based weighted average' means; both cost you.\n• Giving up board control at seed 'to show good faith' — normal at Series B, a red flag at seed, and nearly impossible to claw back.",
+            ),
+            LessonBlock(
               heading: 'Key takeaway',
               body:
                   "Valuation is the headline; the clauses are the contract. Model who-gets-what at exit before signing, and pay for a real startup lawyer.",
+            ),
+            LessonBlock(
+              heading: 'Do this now',
+              body:
+                  "Open a spreadsheet and build a toy waterfall: your current cap table, a hypothetical raise at 20% dilution, then who gets what at three exit prices under 1x non-participating versus 2x participating preference. Twenty minutes of arithmetic buys you permanent immunity to the most expensive fine print in startups.",
             ),
           ],
         ),
@@ -180,9 +220,19 @@ const tier4 = CourseTier(
                   "• Build a simple monthly P&L now, even with tiny numbers: revenue, variable costs, fixed costs, result.\n• Track the connections: profit from the P&L flows into equity on the balance sheet; the cash statement explains the bank account's movement.\n• Learn the vocabulary that traps beginners: revenue ≠ cash received; profit ≠ cash flow; an invoice sent is not money in the bank.\n• Review monthly, ask one question each time: 'what surprised me?'",
             ),
             LessonBlock(
+              heading: 'Common mistakes',
+              body:
+                  "• Reading only the P&L — profit can grow while receivables balloon and the bank account drains; the P&L alone never shows a cash crisis coming.\n• Mentally spending invoiced revenue — an invoice sent is a promise, not money; count it as cash only when it clears.\n• Skipping the balance sheet as 'accountant stuff' — accrued VAT, payroll withholding, and supplier debts hide there, and they all come due.\n• Reviewing quarterly instead of monthly — a quarter is long enough for a fixable problem to become a fatal one.",
+            ),
+            LessonBlock(
               heading: 'Key takeaway',
               body:
                   "P&L = performance, balance sheet = position, cash flow = survival. Read all three monthly — each one catches what the others hide.",
+            ),
+            LessonBlock(
+              heading: 'Do this now',
+              body:
+                  "Draft this month's one-page P&L straight from your bank statement: revenue in, variable costs, fixed costs, result. It will be imperfect — that's fine. The habit of producing it monthly matters more than decimal precision.",
             ),
           ],
         ),
@@ -207,9 +257,19 @@ const tier4 = CourseTier(
                   "• Start from your funnel (Week 9) and unit economics (Week 7): traffic → conversion → customers → price → retention.\n• Write every assumption on a separate, visible line — assumptions are the model; the math is just plumbing.\n• Forecast 12–24 months monthly. Beyond that is fiction; don't pretend otherwise.\n• Each month, paste actuals next to forecast. The gaps are your learning agenda.",
             ),
             LessonBlock(
+              heading: 'Common mistakes',
+              body:
+                  "• Top-down sizing dressed as a forecast — 'if we capture 1% of the market' is a wish, not a driver; build up from leads, conversion, and price.\n• Hardcoding numbers into formulas — buried constants can't be stress-tested; every assumption gets its own labeled cell.\n• Modeling revenue drivers but flat costs — support headcount, payment fees, and server bills scale with the same growth you're forecasting.\n• Never reconciling against actuals — a forecast you don't check monthly isn't a model, it's decoration for the pitch deck.",
+            ),
+            LessonBlock(
               heading: 'Key takeaway',
               body:
                   "Forecast from named drivers, not wished-for growth rates. The model's value is in the assumptions it forces you to state — and then test.",
+            ),
+            LessonBlock(
+              heading: 'Do this now',
+              body:
+                  "Open a blank sheet and write your revenue drivers as five labeled cells: monthly leads, conversion rate, average price, purchases per customer, retention. Fill in your honest current numbers and compute next month's revenue from them. You've just built row one of your real model.",
             ),
           ],
         ),
@@ -234,9 +294,19 @@ const tier4 = CourseTier(
                   "• Keep a rolling 13-week cash forecast: every expected in and out, by week. Update it weekly — it's the one sheet that can save the company.\n• Know your runway number: months of survival at current burn if revenue froze today.\n• Work the terms: invoice instantly, offer discounts for upfront/annual payment, negotiate longer supplier terms. Every day of gap closed is free financing.\n• Set a tripwire: when runway drops below 6 months, cutting and raising start NOW, not at 2 months.",
             ),
             LessonBlock(
+              heading: 'Common mistakes',
+              body:
+                  "• Confusing the bank balance with runway — much of that balance is already spoken for by supplier orders, salaries, and VAT due; runway is what's left after commitments.\n• Invoicing late and chasing never — in markets like Bangladesh, where corporate buyers routinely stretch payment to 60–90 days, every day you delay the invoice adds a day to the gap; invoice on delivery and follow up the first day overdue.\n• Funding growth entirely from your own cash — each bigger order means more inventory and wages out before anything comes in; negotiate supplier terms and customer deposits so growth doesn't eat you.\n• Updating the cash forecast monthly — cash moves weekly, and the week you weren't looking is the one with the payroll surprise.",
+            ),
+            LessonBlock(
               heading: 'Key takeaway',
               body:
                   "Companies die on payroll dates, not P&L dates. Run the 13-week cash forecast weekly and treat runway under six months as an alarm, not a fact.",
+            ),
+            LessonBlock(
+              heading: 'Do this now',
+              body:
+                  "Build version one of your 13-week cash forecast: thirteen columns, one per week, with every expected inflow and outflow from your bank account and outstanding invoices. Circle the week with the lowest balance — that number, not this month's revenue, is your real constraint.",
             ),
           ],
         ),
@@ -261,9 +331,19 @@ const tier4 = CourseTier(
                   "• Pick 5–7 metrics max — one per vital system: cash, growth, funnel, retention, efficiency.\n• Review the same numbers at the same time weekly; note the trend, not just the level.\n• Build worst-case honestly: revenue 40% under plan, key cost 30% over. Pre-write the response plan for each scenario.\n• Define tripwires: 'if churn passes X% or runway under Y months → trigger plan B automatically.'",
             ),
             LessonBlock(
+              heading: 'Common mistakes',
+              body:
+                  "• Tracking thirty metrics — a dashboard nobody can hold in their head is a report, not an instrument; if everything is watched, nothing is.\n• Reading levels instead of trends — 'churn is 4%' means little; 'churn has risen three weeks straight' is the actual signal.\n• Writing scenarios without pre-committed actions — a worst case with no attached plan just becomes a document you panic-read later.\n• Moving the tripwire when you hit it — 'runway under 6 months' quietly becomes 'under 4' because acting felt premature; a tripwire renegotiated under stress isn't one.",
+            ),
+            LessonBlock(
               heading: 'Key takeaway',
               body:
                   "Five numbers watched weekly beat fifty reviewed quarterly. Plan three futures, attach decisions to each, and let tripwires — not moods — trigger action.",
+            ),
+            LessonBlock(
+              heading: 'Do this now',
+              body:
+                  "Write your dashboard on one page: five to seven metrics, this week's value beside last month's. Then set one tripwire with a pre-decided action — for example, 'runway under 6 months → freeze hiring and start investor conversations.' Put a recurring 20-minute weekly review in your calendar.",
             ),
           ],
         ),
@@ -323,9 +403,19 @@ const tier4 = CourseTier(
                   "• Testing an idea with tiny stakes? Simplest local form is fine — don't let registration block validation.\n• Upgrade triggers: signing meaningful contracts, hiring, taking any investment, or liability that could exceed your savings.\n• If you'll EVER raise equity, incorporate a limited company sooner — retrofitting founders' shares, vesting, and IP later is expensive surgery.\n• Get one hour of local professional advice: structure + tax registration + licenses for your sector, done right once.",
             ),
             LessonBlock(
+              heading: 'Common mistakes',
+              body:
+                  "• Incorporating in a prestige foreign jurisdiction before any investor asks — you get double compliance costs and cross-border tax headaches for a signal nobody requested; incorporate where you operate until a term sheet says otherwise.\n• Staying a sole proprietor while signing leases and hiring — every contract is now backed by your personal savings and family assets.\n• Splitting equity '50/50, we'll formalize later' with no company to hold the shares — there is nothing to own yet, so the promise is unenforceable exactly when it matters.\n• Registering the company but skipping sector licenses and tax registrations — the entity exists, but one inspection can still shut the business.",
+            ),
+            LessonBlock(
               heading: 'Key takeaway',
               body:
                   "Structure is liability + tax + fundability. Start simple if stakes are tiny, but incorporate before contracts, hires, or investors make you wish you had.",
+            ),
+            LessonBlock(
+              heading: 'Do this now',
+              body:
+                  "Look up the incorporation process, cost, and timeline for your country — in Bangladesh that's RJSC name clearance followed by private limited company registration. Then write one sentence stating your personal upgrade trigger: the specific event (first hire, first big contract, first investor conversation) that means you incorporate that week.",
             ),
           ],
         ),
@@ -350,9 +440,19 @@ const tier4 = CourseTier(
                   "• Founders' agreement with vesting: this week, not 'once things get serious.' Things are serious.\n• IP assignment from every human who touches the product — no exceptions, especially freelancers.\n• Use quality templates for routine docs, and a lawyer for the founders' agreement and anything involving equity.\n• Every real customer or supplier deal in writing: scope, price, payment terms, what happens on cancellation.",
             ),
             LessonBlock(
+              heading: 'Common mistakes',
+              body:
+                  "• Skipping vesting 'because we trust each other' — trust is exactly what vesting protects; without it, a co-founder who quits in month four keeps their full stake forever.\n• Letting a freelancer build the MVP with no IP assignment — in most jurisdictions paying for code does not transfer copyright, so the contractor legally owns your product.\n• Making verbal equity promises to early helpers — 'we'll sort you out later' is remembered differently by everyone, usually during diligence.\n• Asking investors to sign NDAs — they see hundreds of pitches and won't sign; insisting signals inexperience, not caution.",
+            ),
+            LessonBlock(
               heading: 'Key takeaway',
               body:
                   "Sign the hard documents while everyone still likes each other. A founders' agreement and universal IP assignment are the cheapest disaster insurance in business.",
+            ),
+            LessonBlock(
+              heading: 'Do this now',
+              body:
+                  "Draft a one-page term summary and send it to your co-founder(s) today: equity split, four-year vesting with a one-year cliff, roles, decision rights, and what happens if someone leaves. Agreeing on this page is the hard part — turning it into a signed legal document afterward is mechanical.",
             ),
           ],
         ),
@@ -377,9 +477,19 @@ const tier4 = CourseTier(
                   "• Before naming anything: search the trademark registry and domain availability. Change the name NOW if it conflicts.\n• File the trademark in your home market once the name is validated — it's cheap relative to rebranding.\n• Copyright: ensure the company owns it via IP assignments (previous lesson); register key works if enforcement matters.\n• Patents: only for defensible, novel tech with money behind it — and talk to a patent attorney about the one-year clock public disclosure starts.",
             ),
             LessonBlock(
+              heading: 'Common mistakes',
+              body:
+                  "• Building the brand before searching the registry — discovering a conflict after the logo, packaging, and social handles exist turns a free name change into an expensive rebrand.\n• Filing a patent before the market says yes — spending five figures protecting an idea customers haven't validated inverts the risk you should be reducing.\n• Assuming paying for work means owning it — without a signed assignment, the agency or freelancer keeps the copyright to 'your' designs and code.\n• Demoing patentable tech publicly without checking disclosure rules — in many countries public disclosure starts a clock (or kills patentability outright) before you've filed anything.",
+            ),
+            LessonBlock(
               heading: 'Key takeaway',
               body:
                   "Trademark the name early, own the copyright through assignments, keep secrets secret, and patent only what's truly novel and already validated.",
+            ),
+            LessonBlock(
+              heading: 'Do this now',
+              body:
+                  "Spend fifteen minutes searching your national trademark registry, the domain registrar, and the app stores for your exact name and close variants. If anything conflicts in your industry, start a rename shortlist today — the name is never cheaper to change than right now.",
             ),
           ],
         ),
@@ -404,9 +514,19 @@ const tier4 = CourseTier(
                   "• Get one session with a local accountant: exactly which registrations and filings apply to your size and sector. Calendar every deadline.\n• Separate business and personal money from day one — the cheapest bookkeeping decision you'll make.\n• Data privacy minimum: collect only what you need, secure it, write a plain-language privacy policy, delete on request.\n• Ethics test for gray areas: 'if this decision were public, would I defend it?' If no — don't.",
             ),
             LessonBlock(
+              heading: 'Common mistakes',
+              body:
+                  "• Running the business through a personal bank account — it wrecks bookkeeping, weakens your liability shield, and makes every tax filing a forensic project.\n• Ignoring VAT/sales-tax thresholds until you've crossed them — back-taxes plus penalties arrive as one bill, timed for when you can least afford it.\n• Copy-pasting a privacy policy that promises practices you don't follow — in a dispute, a false policy is worse than none; write only what you actually do.\n• Treating compliance as a one-time setup — registrations expire and filing dates recur; without a calendar, 'done' silently becomes 'overdue.'",
+            ),
+            LessonBlock(
               heading: 'Key takeaway',
               body:
                   "Register properly, file on time, guard customer data, and act as if everything becomes public. Compliance debt is the most expensive kind to refinance.",
+            ),
+            LessonBlock(
+              heading: 'Do this now',
+              body:
+                  "Open your calendar and enter every filing deadline you already know — tax returns, VAT, license renewals — as recurring events with one-week warnings. Then book the one-hour session with a local accountant to fill in the ones you don't know exist.",
             ),
           ],
         ),
@@ -466,9 +586,19 @@ const tier4 = CourseTier(
                   "• Exhaust depth first: adjacent segments and products in your home market usually cost a fraction of a new country.\n• Pick market two by adjacency — language, culture, regulation, payment habits — not by size headlines.\n• Enter light: partnerships, distributors, or digital-only presence before offices and entities.\n• Set a kill criterion before entering: what result within 12 months means you withdraw?",
             ),
             LessonBlock(
+              heading: 'Common mistakes',
+              body:
+                  "• Expanding to escape home-market competition — your problems travel with you, and the new market adds its own; fix the model before exporting it.\n• Choosing market two by GDP headlines instead of adjacency — a Dhaka-proven model usually travels to Chattogram or Sylhet for a fraction of what a Dubai launch costs, and teaches you the expansion playbook safely.\n• Copy-pasting pricing and payment methods — a price and payment flow tuned for one market's wallets and habits routinely fails in the next; localize both before launch.\n• Entering with no kill criterion — without a pre-agreed 12-month bar, underperforming country offices become zombies that bleed cash and leadership attention for years.",
+            ),
+            LessonBlock(
               heading: 'Key takeaway',
               body:
                   "Win deep before you go wide. Expand to adjacent markets from documented playbooks — and know your exit criteria before you enter.",
+            ),
+            LessonBlock(
+              heading: 'Do this now',
+              body:
+                  "List three depth moves still open in your home market — an adjacent segment, a second product for existing customers, an untouched channel — with a rough revenue estimate for each. Compare the best one against your most tempting foreign market on cost and time to first revenue. Write down which wins and why.",
             ),
           ],
         ),
@@ -493,9 +623,19 @@ const tier4 = CourseTier(
                   "• Delegate outcomes with context: 'own activation, here's why it matters, here's the target' — then let them choose the how.\n• Install a communication rhythm: weekly team priorities, monthly all-hands on goals, quarterly direction reset.\n• Promote managers for people-skill and judgment, not tenure — and train them; managing is a learned craft.\n• Audit your calendar monthly: if it's full of tasks someone else could own, the transition has stalled.",
             ),
             LessonBlock(
+              heading: 'Common mistakes',
+              body:
+                  "• Delegating tasks instead of outcomes — you stay the priority queue for every decision, which is the bottleneck with extra steps.\n• Promoting your best individual contributor into management as a reward — you often lose a great builder and gain a struggling manager; select for people-judgment, and make a senior IC track so promotion isn't the only raise.\n• Assuming information still flows by osmosis — what five people absorbed in the hallway, twenty people never hear; if you haven't said it three times in the rhythm, assume it wasn't heard.\n• Snatching back delegated work at the first mistake — it teaches the team that decisions aren't really theirs, and the queue re-forms at your desk.",
+            ),
+            LessonBlock(
               heading: 'Key takeaway',
               body:
                   "Scale turns the founder from player to coach. Delegate outcomes, build the rhythm, choose managers deliberately — the team can only grow past you if you let it.",
+            ),
+            LessonBlock(
+              heading: 'Do this now',
+              body:
+                  "Audit this week's calendar and mark every block someone else could own. Pick one recurring task from the marked set and hand it over today — with the outcome, the context on why it matters, and a check-in date. Do not take it back at the first wobble.",
             ),
           ],
         ),
@@ -520,9 +660,19 @@ const tier4 = CourseTier(
                   "• Run clean from day one: contracts signed, cap table tidy, finances auditable (Week 14's diligence point).\n• Build relationships with likely acquirers as partners years early — most acquisitions start as partnerships.\n• Know your industry's multiples: what did comparable companies sell for, as a multiple of revenue or profit?\n• Align with investors on exit expectations BEFORE taking their money — mismatched exit ambitions end in boardroom wars.",
             ),
             LessonBlock(
+              heading: 'Common mistakes',
+              body:
+                  "• Building to sell instead of building to last — acquirers can smell a company optimized for exit, and it reads as weakness; strong independent businesses get the best offers.\n• Waiting for acquirers to find you — most acquisitions grow out of partnerships and relationships built years earlier; if the first contact is the offer, you have no leverage.\n• Letting the diligence room rot — unsigned contracts, a messy cap table, and handshake equity kill deals in the final weeks, after the price was agreed.\n• Taking VC money while privately wanting a modest exit — a fund that needs a 10x outcome will block the acquisition that would change your life.",
+            ),
+            LessonBlock(
               heading: 'Key takeaway',
               body:
                   "Exits are built years before they happen: clean books, real relationships with potential buyers, and investors who share your ambition. Build to be bought — or to never need to be.",
+            ),
+            LessonBlock(
+              heading: 'Do this now',
+              body:
+                  "Write down five companies that could plausibly acquire your business within five years, and for each, one sentence on why (customers, product, team, or threat). Then note one partnership or integration you could start with each in the next year — that's how acquisition relationships actually begin.",
             ),
           ],
         ),
@@ -547,9 +697,19 @@ const tier4 = CourseTier(
                   "• Guard the basics like production infrastructure: sleep, movement, and real days off. Schedule them; they don't happen by default.\n• Separate identity from company: keep one hobby, one friendship circle, one identity thread that has nothing to do with the startup.\n• Get a truth-teller: a founder peer group, mentor, or therapist — someone you never have to perform for.\n• Watch your own dashboard: energy, cynicism, sleep. Treat two bad weeks as a tripwire, not a character test.",
             ),
             LessonBlock(
+              heading: 'Common mistakes',
+              body:
+                  "• Wearing 80-hour weeks as a badge — past a point, extra hours produce worse decisions, not more output; you're shipping fatigue into your own product.\n• Waiting for a crisis to build support — a peer group or mentor found during a breakdown helps far less than one built while things are fine.\n• Performing fine-ness for your co-founder — hidden struggle surfaces later as 'sudden' conflict or a resignation nobody saw coming; honesty between founders is infrastructure.\n• Deferring every vacation until 'after the next milestone' — there is always a next milestone; unrested years accrue like unpaid debt, and the interest is judgment.",
+            ),
+            LessonBlock(
               heading: 'Key takeaway',
               body:
                   "You are the machine the company runs on — maintain yourself like it. Sustainable pace, separate identity, honest support: that's how founders last a decade.",
+            ),
+            LessonBlock(
+              heading: 'Do this now',
+              body:
+                  "Open your calendar and block one fully offline day within the next two weeks — no email, no metrics. Then message one founder peer or mentor and propose a recurring monthly check-in where neither of you has to perform. Both actions take ten minutes; both compound for years.",
             ),
           ],
         ),
@@ -608,9 +768,19 @@ const tier4 = CourseTier(
                   "• Notice: you already built every slide in this course. Assemble, don't create.\n• One idea per slide, readable in 3 seconds from across a room. Big numbers, short words.\n• Lead with strength: if traction is good, it goes early. If team is the story, open there.\n• Make the ask specific: amount, the milestones it buys, and what that proves for the NEXT round.",
             ),
             LessonBlock(
+              heading: 'Common mistakes',
+              body:
+                  "• A 'no competitors' slide — investors read it as 'didn't look'; alternatives always exist, even pen-and-paper, and mapping them honestly builds credibility.\n• Top-down market sizing — '1% of a huge number' signals no customer contact; use your bottom-up Week 6 numbers.\n• Burying traction on slide ten — if you have revenue, retention, or growth, it belongs in the first three slides; it's the strongest evidence you own.\n• Slides that read like documents — a paragraph-dense deck gets skimmed in three minutes and skipped; if a slide can't be absorbed in three seconds, split it or cut it.",
+            ),
+            LessonBlock(
               heading: 'Key takeaway',
               body:
                   "A deck is 12 answers to 12 predictable questions, one per slide, led by your strongest card. Its job is the meeting — clarity beats completeness.",
+            ),
+            LessonBlock(
+              heading: 'Do this now',
+              body:
+                  "Create twelve blank slides with only headlines — each headline a full sentence stating that slide's claim, like 'Retention is 85% after six months.' If a headline is vague or you can't write one, you've found the slide that needs work. Fill in visuals later.",
             ),
           ],
         ),
@@ -635,9 +805,19 @@ const tier4 = CourseTier(
                   "• Open with one real customer from your Week 2 interviews: name, context, struggle, cost. Thirty seconds.\n• Structure: their world today → what becomes possible → why you're the bridge → proof it's working.\n• Humanize the numbers: '3 hours every week' lands harder as 'her Thursday afternoons, gone.'\n• Practice the first 60 seconds until flawless — attention is won or lost there.",
             ),
             LessonBlock(
+              heading: 'Common mistakes',
+              body:
+                  "• Opening with the market size instead of a person — abstractions blur together after a day of pitches; a face and a Tuesday do not.\n• Inventing a composite customer — one probing question ('can we talk to her?') exposes it; use a real interviewee you can actually produce.\n• Quoting numbers without anchors — '3 hours saved weekly' evaporates; 'her Thursday afternoons back' sticks.\n• Overloading the story — two customers, three struggles, and a subplot dilute it to noise; one person, one struggle, one moment.",
+            ),
+            LessonBlock(
               heading: 'Key takeaway',
               body:
                   "Facts convince; stories get remembered. Open with one real customer's bad Tuesday, and hang every number on a human moment.",
+            ),
+            LessonBlock(
+              heading: 'Do this now',
+              body:
+                  "Pick one real person from your Week 2 interview notes and write your 30-second opening: name, context, the struggle, what it costs them — like the pharmacy owner in Mirpur who loses two hours every evening reconciling supplier ledgers by hand. Read it aloud twice and cut every sentence that isn't doing work.",
             ),
           ],
         ),
@@ -662,9 +842,19 @@ const tier4 = CourseTier(
                   "• Write the 10 questions you're most afraid of. Draft honest answers. Rehearse them out loud.\n• Answer the asked question first — one direct sentence — then add context. Don't detour to a rehearsed speech.\n• When you don't know: say so, then show your plan to find out. Never bluff a number.\n• Reframe attacks as interest: 'good question — here's what we've learned about that' keeps the room collaborative.",
             ),
             LessonBlock(
+              heading: 'Common mistakes',
+              body:
+                  "• Bluffing a number you don't know — one caught fabrication poisons every other claim in the room; 'I don't have that figure, I'll send it today' costs nothing.\n• Getting defensive at pushback — investors press hardest on companies they're interested in; treating the probe as an attack turns interest into doubt.\n• Answering the question you wished they'd asked — detouring into a rehearsed speech reads as evasion; one direct sentence first, context after.\n• Rehearsing only softball questions — practicing the pitch without practicing 'why won't Google copy you?' means meeting your hardest moment live.",
+            ),
+            LessonBlock(
               heading: 'Key takeaway',
               body:
                   "Q&A is a character test disguised as due diligence. Prepare your scariest questions, answer straight, and let 'here's how we'll find out' replace every bluff.",
+            ),
+            LessonBlock(
+              heading: 'Do this now',
+              body:
+                  "Write the five questions you most dread being asked about your business. Draft an honest two-sentence answer to each — evidence first, no padding — and say them out loud once. The dread mostly evaporates on the first spoken rep.",
             ),
           ],
         ),
@@ -689,9 +879,19 @@ const tier4 = CourseTier(
                   "• Minimum 10 full run-throughs out loud, timed, standing — the physical act is different from mental review.\n• At least 3 in front of people who'll interrupt with questions mid-flow, like a real panel.\n• Record one run and watch it — painful and worth more than five blind reps.\n• Prepare the 60-second and 5-minute versions too; you'll be asked for both. Then sleep before the real one.",
             ),
             LessonBlock(
+              heading: 'Common mistakes',
+              body:
+                  "• Rehearsing silently by reading slides — the mouth, timing, and nerves are untrained, and it shows within thirty seconds on stage.\n• Memorizing a word-for-word script — the first interruption derails it and you can't find your place; internalize the flow of ideas instead.\n• Solving a time overrun by talking faster — rushed delivery loses the room; cut slides, never pace.\n• Making the panel your first live audience — the tenth run-through in front of interrupting humans is where the pitch becomes conversational; don't spend reps one through nine on judges.",
+            ),
+            LessonBlock(
               heading: 'Key takeaway',
               body:
                   "Rehearse out loud, timed, interrupted, and recorded — until the pitch is a conversation you could have woken up in the middle of. Then go graduate.",
+            ),
+            LessonBlock(
+              heading: 'Do this now',
+              body:
+                  "Do one full run-through right now: stand up, start a timer, deliver the pitch out loud, and record it on your phone. Watch it back once and write down the three things to fix. That single painful rep is worth five silent read-throughs.",
             ),
           ],
         ),

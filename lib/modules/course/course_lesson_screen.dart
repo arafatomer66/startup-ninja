@@ -5,11 +5,32 @@ import '../../app/routes.dart';
 import '../../data/courses/startup_101.dart';
 import '../../data/models/course_model.dart';
 import '../../data/providers/course_progress_provider.dart';
+import '../../widgets/motion.dart';
 import '../../widgets/responsive.dart';
 import 'course_celebration.dart';
 
-class CourseLessonScreen extends StatelessWidget {
+class CourseLessonScreen extends StatefulWidget {
   const CourseLessonScreen({super.key});
+
+  @override
+  State<CourseLessonScreen> createState() => _CourseLessonScreenState();
+}
+
+class _CourseLessonScreenState extends State<CourseLessonScreen> {
+  final _readProgress = ValueNotifier<double>(0);
+
+  @override
+  void dispose() {
+    _readProgress.dispose();
+    super.dispose();
+  }
+
+  bool _onScroll(ScrollNotification n) {
+    final max = n.metrics.maxScrollExtent;
+    _readProgress.value =
+        max > 0 ? (n.metrics.pixels / max).clamp(0.0, 1.0) : 0.0;
+    return false;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -26,60 +47,89 @@ class CourseLessonScreen extends StatelessWidget {
 
       return Scaffold(
         backgroundColor: AppColors.background,
-        body: ResponsiveSliverBody(
-          slivers: [
-            SliverToBoxAdapter(
-              child: _LessonHero(
-                week: week,
-                index: index,
-                lesson: lesson,
-                tier: tier,
-                done: done,
-              ),
-            ),
-            SliverPadding(
-              padding: const EdgeInsets.fromLTRB(20, 24, 20, 0),
-              sliver: SliverList(
-                delegate: SliverChildBuilderDelegate(
-                  (context, i) => _ContentBlock(
-                    block: lesson.blocks[i],
-                    color: tier.color,
+        body: Stack(
+          children: [
+            NotificationListener<ScrollNotification>(
+              onNotification: _onScroll,
+              child: ResponsiveSliverBody(
+                slivers: [
+                  SliverToBoxAdapter(
+                    child: _LessonHero(
+                      week: week,
+                      index: index,
+                      lesson: lesson,
+                      tier: tier,
+                      done: done,
+                    ),
                   ),
-                  childCount: lesson.blocks.length,
-                ),
-              ),
-            ),
-            SliverToBoxAdapter(
-              child: Padding(
-                padding: const EdgeInsets.fromLTRB(20, 8, 20, 56),
-                child: Column(
-                  children: [
-                    SizedBox(
-                      width: double.infinity,
-                      child: ElevatedButton.icon(
-                        onPressed: () {
-                          if (provider.toggleWeekItem(week, itemKey)) {
-                            celebrateWeek(week);
-                          }
-                        },
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor:
-                              done ? AppColors.success : tier.color,
+                  SliverPadding(
+                    padding: const EdgeInsets.fromLTRB(20, 24, 20, 0),
+                    sliver: SliverList(
+                      delegate: SliverChildBuilderDelegate(
+                        (context, i) => FadeSlideIn(
+                          delay: Duration(milliseconds: 50 * i.clamp(0, 6)),
+                          child: _ContentBlock(
+                            block: lesson.blocks[i],
+                            color: tier.color,
+                          ),
                         ),
-                        icon: Icon(
-                          done
-                              ? Icons.check_circle_rounded
-                              : Icons.radio_button_unchecked_rounded,
-                          size: 20,
-                        ),
-                        label: Text(done
-                            ? 'Lesson completed — tap to undo'
-                            : 'Mark lesson as complete'),
+                        childCount: lesson.blocks.length,
                       ),
                     ),
-                    const SizedBox(height: AppSpacing.md),
-                    _LessonNav(week: week, index: index, done: done),
-                  ],
+                  ),
+                  SliverToBoxAdapter(
+                    child: Padding(
+                      padding: const EdgeInsets.fromLTRB(20, 8, 20, 56),
+                      child: Column(
+                        children: [
+                          SizedBox(
+                            width: double.infinity,
+                            child: ElevatedButton.icon(
+                              onPressed: () {
+                                if (provider.toggleWeekItem(week, itemKey)) {
+                                  celebrateWeek(week);
+                                } else if (provider.isItemDone(
+                                    week.id, itemKey)) {
+                                  celebrateXp(
+                                      CourseProgressProvider.lessonXp);
+                                }
+                              },
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor:
+                                    done ? AppColors.success : tier.color,
+                              ),
+                              icon: Icon(
+                                done
+                                    ? Icons.check_circle_rounded
+                                    : Icons.radio_button_unchecked_rounded,
+                                size: 20,
+                              ),
+                              label: Text(done
+                                  ? 'Lesson completed — tap to undo'
+                                  : 'Mark lesson as complete'),
+                            ),
+                          ),
+                          const SizedBox(height: AppSpacing.md),
+                          _LessonNav(week: week, index: index, done: done),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            // Thin reading-progress bar pinned to the top of the screen.
+            Positioned(
+              top: 0,
+              left: 0,
+              right: 0,
+              child: ValueListenableBuilder<double>(
+                valueListenable: _readProgress,
+                builder: (context, value, _) => LinearProgressIndicator(
+                  value: value,
+                  minHeight: 3,
+                  backgroundColor: Colors.transparent,
+                  valueColor: AlwaysStoppedAnimation(tier.color),
                 ),
               ),
             ),
@@ -245,15 +295,50 @@ class _ContentBlock extends StatelessWidget {
 
   const _ContentBlock({required this.block, required this.color});
 
+  /// Special block types get their own accent + icon so a reader can
+  /// scan a lesson the way Duolingo tips are scanned: warnings amber,
+  /// actions green, takeaways highlighted in the tier color.
+  ({Color accent, IconData? icon, Color? tint}) get _style {
+    final h = block.heading.toLowerCase();
+    if (h.contains('mistake')) {
+      return (
+        accent: AppColors.warning,
+        icon: Icons.warning_amber_rounded,
+        tint: AppColors.warning.withValues(alpha: 0.05),
+      );
+    }
+    if (h.contains('do this now')) {
+      return (
+        accent: AppColors.success,
+        icon: Icons.bolt_rounded,
+        tint: AppColors.success.withValues(alpha: 0.05),
+      );
+    }
+    if (h.contains('takeaway')) {
+      return (
+        accent: color,
+        icon: Icons.lightbulb_rounded,
+        tint: color.withValues(alpha: 0.05),
+      );
+    }
+    return (accent: color, icon: null, tint: null);
+  }
+
   @override
   Widget build(BuildContext context) {
+    final style = _style;
+
     return Container(
       margin: const EdgeInsets.only(bottom: AppSpacing.md),
       padding: const EdgeInsets.all(AppSpacing.xl),
       decoration: BoxDecoration(
-        color: AppColors.surface,
+        color: style.tint ?? AppColors.surface,
         borderRadius: BorderRadius.circular(AppRadius.lg),
-        border: Border.all(color: AppColors.border),
+        border: Border.all(
+          color: style.tint != null
+              ? style.accent.withValues(alpha: 0.3)
+              : AppColors.border,
+        ),
         boxShadow: AppShadows.sm,
       ),
       child: Column(
@@ -261,14 +346,17 @@ class _ContentBlock extends StatelessWidget {
         children: [
           Row(
             children: [
-              Container(
-                width: 4,
-                height: 16,
-                decoration: BoxDecoration(
-                  color: color,
-                  borderRadius: BorderRadius.circular(2),
+              if (style.icon != null)
+                Icon(style.icon, color: style.accent, size: 17)
+              else
+                Container(
+                  width: 4,
+                  height: 16,
+                  decoration: BoxDecoration(
+                    color: style.accent,
+                    borderRadius: BorderRadius.circular(2),
+                  ),
                 ),
-              ),
               const SizedBox(width: 10),
               Text(
                 block.heading.toUpperCase(),
@@ -276,7 +364,7 @@ class _ContentBlock extends StatelessWidget {
                   fontSize: 11,
                   fontWeight: FontWeight.w800,
                   letterSpacing: 1.0,
-                  color: color,
+                  color: style.accent,
                 ),
               ),
             ],

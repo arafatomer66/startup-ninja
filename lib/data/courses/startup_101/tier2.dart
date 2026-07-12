@@ -36,9 +36,19 @@ const tier2 = CourseTier(
                   "• Start with customer segments and value proposition — everything else serves those two.\n• Write facts where you have evidence (from your Week 2 interviews) and mark guesses with a '?'.\n• One canvas per segment if you serve very different customers — don't blur them into one.\n• Revisit it monthly: the canvas is a living document, not a framed certificate.",
             ),
             LessonBlock(
+              heading: 'Common mistakes',
+              body:
+                  "• Filling all nine blocks with confident prose when most are guesses — unmarked assumptions get defended in pitches; tag anything without customer evidence with a '?'.\n• Writing the value proposition as a feature list ('AI-powered dashboard') — state the outcome instead: 'close the books in 2 hours, not 2 days.'\n• Stretching one canvas across two different segments — a marketplace's sellers and buyers don't share channels, relationships, or willingness to pay; give each their own canvas.\n• Treating it as a one-time deliverable — a canvas untouched for three months is a record of old guesses, not a model of your business.",
+            ),
+            LessonBlock(
               heading: 'Key takeaway',
               body:
                   "The canvas isn't paperwork — it's an X-ray. Every '?' you mark on it is an experiment waiting to be run.",
+            ),
+            LessonBlock(
+              heading: 'Do this now',
+              body:
+                  "Sketch a blank canvas on paper and set a 20-minute timer to fill all nine blocks fast. Then circle every entry you have zero customer evidence for. Count the circles — that number is your experiment backlog for the month.",
             ),
           ],
         ),
@@ -63,9 +73,19 @@ const tier2 = CourseTier(
                   "• From your interview notes, list the customer's jobs, pains, and gains — in their words, not yours.\n• Rank them: which pain came up most often? Which job costs the most?\n• For your top three, write the matching pain reliever or gain creator your product offers.\n• Cut every feature that doesn't map to a ranked pain or gain — that's scope you don't need.",
             ),
             LessonBlock(
+              heading: 'Common mistakes',
+              body:
+                  "• Inventing jobs and pains from your own head instead of interview notes — you end up designing a mirror of yourself, not the customer.\n• Listing ten pains and treating them all equally — customers pay to kill their top one or two; rank ruthlessly and design for the top of the list.\n• Capturing only functional jobs and missing social and emotional ones — a shop owner buying software also wants to look modern to customers and feel in control of the numbers.\n• Keeping pet features that map to nothing — every feature that misses a ranked pain or gain costs build time and buries the ones that matter.",
+            ),
+            LessonBlock(
               heading: 'Key takeaway',
               body:
                   "Design the offer as a mirror of the customer's profile. If a feature doesn't relieve a real pain or create a wanted gain, it's decoration.",
+            ),
+            LessonBlock(
+              heading: 'Do this now',
+              body:
+                  "Take your five best interview notes and extract every pain into one list, in the customer's exact words. Rank them by how often and how emotionally each came up. Write your product's answer to the top two — if you don't have one, you just found your roadmap.",
             ),
           ],
         ),
@@ -90,9 +110,19 @@ const tier2 = CourseTier(
                   "• Follow the customer's buying rhythm: do they get value continuously (subscription) or per event (transaction)?\n• Check what they already pay this way — matching an existing habit halves the education cost.\n• Consider cash timing: subscriptions smooth cash flow; big one-time deals starve you between wins.\n• Start with ONE model. Hybrid pricing at launch confuses customers and your own metrics.",
             ),
             LessonBlock(
+              heading: 'Common mistakes',
+              body:
+                  "• Copying a model because a famous startup uses it — freemium works at consumer-internet scale; with a 500-company niche it just gives your product away.\n• Fighting the customer's cash rhythm — many Bangladeshi SMBs run on daily cash flow, so a large annual license dies where a small weekly or per-order fee gets paid without a thought.\n• Launching with three pricing models at once — you can't tell which one is failing, and customers can't tell what you cost.\n• Ignoring collection cost — a model that needs invoices and 60-day follow-ups can net less than a smaller fee collected instantly at the point of value.",
+            ),
+            LessonBlock(
               heading: 'Key takeaway',
               body:
                   "Pick the model that matches how value is consumed and how your customer already buys. Recurring revenue is worth fighting for.",
+            ),
+            LessonBlock(
+              heading: 'Do this now',
+              body:
+                  "Write down how your target customer pays for the two things they already buy that are most similar to yours — frequency, amount, and payment method. Draft your revenue model to match that rhythm, then say it out loud in one sentence: 'We charge X per Y.'",
             ),
           ],
         ),
@@ -117,9 +147,19 @@ const tier2 = CourseTier(
                   "• List every cost, tagged fixed or variable. Include YOUR time at a real market wage — free founder labor hides broken models.\n• Compute per-unit variable cost against your intended price: the gap is your contribution margin.\n• Divide fixed costs by that margin: that's how many sales just to break even. Is that number achievable in your market?\n• Stress it: what if costs run 30% higher and price 20% lower? Still standing?",
             ),
             LessonBlock(
+              heading: 'Common mistakes',
+              body:
+                  "• Pricing your own labor at zero — the model 'works' until the day you must hire someone to do what you did for free, and then it doesn't.\n• Forgetting sneaky variable costs — payment fees, refunds, failed deliveries, and support minutes each shave the margin on every single unit.\n• Mis-tagging variable costs as fixed — calling delivery riders 'fixed' hides that the cost explodes with volume.\n• Testing only the happy case — if the model dies when costs run 30% higher and price 20% lower, it was never viable, just lucky on paper.",
+            ),
+            LessonBlock(
               heading: 'Key takeaway',
               body:
                   "A business model is viable only if each sale leaves margin and the required break-even volume actually exists in your market. Check with real numbers now, not after launch.",
+            ),
+            LessonBlock(
+              heading: 'Do this now',
+              body:
+                  "Open a spreadsheet and list every monthly cost in one column, tagging each F (fixed) or V (variable). Add a row for your own hours at a real market wage. Compute price minus per-unit variable cost and write that contribution margin at the top of the sheet.",
             ),
           ],
         ),
@@ -173,9 +213,19 @@ const tier2 = CourseTier(
                   "• Write your riskiest assumption: usually 'people will pay for this,' rarely 'can it be built.'\n• Design the smallest test that produces real behavior — a sale, a signup, a signed letter of intent.\n• Define the success metric before building (e.g., '10 of 50 prospects pre-order').\n• Run it, read it honestly, then persevere, pivot, or kill — and start the next loop.",
             ),
             LessonBlock(
+              heading: 'Common mistakes',
+              body:
+                  "• Building version 0.5 of the dream product instead of a test — six months of polish before evidence is exactly the failure the loop exists to prevent.\n• Testing the easy assumption ('can we build it?') instead of the killer one ('will they pay?') — engineering risk is rarely what kills startups.\n• Setting the success metric after seeing results — post-hoc goalposts make every experiment a 'success' and teach you nothing.\n• Measuring opinions instead of behavior — 'they loved the demo' is not data; a pre-order, a signup, or a signed letter of intent is.",
+            ),
+            LessonBlock(
               heading: 'Key takeaway',
               body:
                   "The MVP's product is learning, not features. Test the assumption that kills you fastest, as cheaply as possible, and let evidence steer.",
+            ),
+            LessonBlock(
+              heading: 'Do this now',
+              body:
+                  "Write your single riskiest assumption as one falsifiable sentence, then define the pass/fail metric next to it — e.g., '5 of 20 prospects pay a deposit this month.' Pin both at the top of your planning doc; nothing gets built that doesn't serve that test.",
             ),
           ],
         ),
@@ -201,9 +251,19 @@ const tier2 = CourseTier(
                   "• Testing 'will they pay?' → landing page with a price and pre-order button.\n• Testing 'does my solution actually solve it?' → concierge with 3–5 real customers.\n• Testing 'will they use it repeatedly?' → Wizard of Oz or single-feature.\n• Whichever you pick: charge money if at all possible. Payment is the only unfakeable metric.",
             ),
             LessonBlock(
+              heading: 'Common mistakes',
+              body:
+                  "• Automating before you know what to automate — many Dhaka delivery startups began as a founder taking orders over WhatsApp; that concierge phase teaches the real workflow before code freezes it.\n• Making the landing page vague — no price, no button, no concrete promise means the signups you count measure curiosity, not demand.\n• Running Wizard of Oz with no exit criterion — the manual work quietly swallows your week; decide upfront, e.g., 'automate once we pass 20 orders a week.'\n• Testing without a price — free pilots produce enthusiastic users and zero information about whether this is a business.",
+            ),
+            LessonBlock(
               heading: 'Key takeaway',
               body:
                   "Match the MVP type to the assumption you're testing, and prefer the version where a human fakes the machine — hours are cheaper than months of code.",
+            ),
+            LessonBlock(
+              heading: 'Do this now',
+              body:
+                  "Name the one assumption your MVP must test, then pick the matching type from this lesson. Sketch it in ten lines: who sees it, what they're asked to do, what it costs them, and what number counts as a pass.",
             ),
           ],
         ),
@@ -228,9 +288,19 @@ const tier2 = CourseTier(
                   "• Write a problem statement with zero solution words in it. If 'app' or 'platform' appears, rewrite.\n• Sketch three genuinely different solutions before committing to one — the first idea is rarely best.\n• Prototype on paper or clickable mockups in hours, not code in weeks.\n• Test with five users: give a task, stay silent, watch where they stumble. Fix, repeat.",
             ),
             LessonBlock(
+              heading: 'Common mistakes',
+              body:
+                  "• Smuggling the solution into the problem statement — 'customers need our app to…' is a pitch, not a problem; if it names your product, rewrite it.\n• Generating one idea and defending it — the point of sketching three genuinely different options is to escape your attachment to the first.\n• Prototyping in code — spending a week in Flutter to learn what a paper sketch would have told you in an afternoon.\n• Coaching during tests — every hint ('you can tap there') deletes a finding; stay silent and let the stumble teach you.",
+            ),
+            LessonBlock(
               heading: 'Key takeaway',
               body:
                   "Frame the problem before touching solutions, generate options before choosing, and let real users react to something tangible as early as possible.",
+            ),
+            LessonBlock(
+              heading: 'Do this now',
+              body:
+                  "Rewrite your current problem statement with zero solution words — no app, platform, tool, or AI allowed. Then sketch three different ways to solve it on one sheet of paper, including at least one that involves no software at all.",
             ),
           ],
         ),
@@ -255,9 +325,19 @@ const tier2 = CourseTier(
                   "• Map your MVP as a flow: user does X → data lands in Y → notification goes to Z. Then pick one tool per arrow.\n• Use boring, popular tools — tutorials and integrations matter more than novelty.\n• Accept ugly seams: manual steps behind the scenes are fine at 10 customers.\n• Know the limits: heavy real-time features, unusual algorithms, or hard compliance needs may genuinely need code — but validate demand first anyway.",
             ),
             LessonBlock(
+              heading: 'Common mistakes',
+              body:
+                  "• Choosing tools by novelty — obscure builders die, change pricing, or lack the integration you need in week three; boring and popular wins.\n• Rebuilding the whole dream in no-code — the goal is one flow that tests demand, not a feature-complete clone that still took three months.\n• Hiding the manual seams from yourself — faking automation for customers is fine; forgetting which steps are humans when you plan costs and hiring is fatal.\n• Waiting for 'the real version' before charging — a payment link works on day one; collect money through the duct tape.",
+            ),
+            LessonBlock(
               heading: 'Key takeaway',
               body:
                   "Version one's job is to exist quickly. Duct-tape proudly, launch in weeks, and earn the right to build it properly with real demand.",
+            ),
+            LessonBlock(
+              heading: 'Do this now',
+              body:
+                  "Draw your MVP as boxes and arrows: user does X → data lands in Y → someone is notified at Z. For each arrow, write one boring, popular tool that could handle it. That diagram is your build plan — start the first box today.",
             ),
           ],
         ),
@@ -316,9 +396,19 @@ const tier2 = CourseTier(
                   "• Cluster your interviews: who described the same pain, in the same words, with the same urgency?\n• Score segments on: pain intensity, ability to pay, reachability, and size. Pick ONE beachhead.\n• Write the persona with a name, a context, a trigger event, current workaround, and a verbatim quote.\n• Pin it where you work — every feature, price, and channel decision gets checked against it.",
             ),
             LessonBlock(
+              heading: 'Common mistakes',
+              body:
+                  "• Segmenting by demographics alone — 'women 25–40' is not a segment; 'salon owners losing bookings to no-shows' is, because it names a shared pain.\n• Choosing the biggest segment instead of the most winnable — the beachhead is where pain, budget, and reachability overlap, not where the headcount is largest.\n• Writing aspirational personas — if no interviewee actually said it, it doesn't go in the persona.\n• Serving two segments at once 'to be safe' — split focus makes both offers mediocre and doubles your channel work.",
+            ),
+            LessonBlock(
               heading: 'Key takeaway',
               body:
                   "Choose one beachhead segment you can dominate and describe them so precisely the marketing writes itself. Depth beats breadth at this stage.",
+            ),
+            LessonBlock(
+              heading: 'Do this now',
+              body:
+                  "Re-read your interview notes and cluster them into two or three groups by shared pain and urgency. Score each group 1–5 on pain intensity, ability to pay, and reachability, then circle the winner. Write that segment's one-line description somewhere you'll see it every day.",
             ),
           ],
         ),
@@ -343,9 +433,19 @@ const tier2 = CourseTier(
                   "• Count the units: how many businesses/people of your target type exist? Use census data, industry associations, licensing records.\n• Multiply by realistic annual spend: your price × purchase frequency.\n• SAM: cut TAM by your real constraints — geography, language, segment, channel.\n• SOM: cut SAM by honest capture — what can your team, budget and competition allow in 3 years? Show the assumptions.",
             ),
             LessonBlock(
+              heading: 'Common mistakes',
+              body:
+                  "• Top-down laziness — 'the market is \$50B and we need 1%' tells an investor you didn't count; build up from real units × real prices instead.\n• Sizing the aspiration instead of the model — if you serve one city, in one language, through field sales, your SAM is that, not the whole region.\n• Using list prices nobody pays — size with realistic average revenue per customer, discounts and free tiers included.\n• Presenting SOM without assumptions — a naked number invites attack; 'X customers via channel Y at Z% conversion' invites a discussion you can win.",
+            ),
+            LessonBlock(
               heading: 'Key takeaway',
               body:
                   "Size the market by counting and multiplying, never by taking 1% of a headline. The method is the message: rigor here signals rigor everywhere.",
+            ),
+            LessonBlock(
+              heading: 'Do this now',
+              body:
+                  "Find the official source that counts your customer type — a licensing body, census table, or industry association; a Bangladeshi startup selling to pharmacies, for instance, would start from the drug-authority license register. Pull the count and multiply by your price × purchase frequency. That's a defensible draft TAM, built in under 30 minutes.",
             ),
           ],
         ),
@@ -370,9 +470,19 @@ const tier2 = CourseTier(
                   "• Distinguish trend from fad: a trend changes underlying behavior or cost structures; a fad changes conversation.\n• Look for compounding evidence: adoption numbers rising across multiple years and multiple sources.\n• Write your 'why now' sentence: what specifically changed (tech cost, regulation, behavior) that unlocks your startup?\n• Check the trend locally — global trends arrive in each market on their own schedule.",
             ),
             LessonBlock(
+              heading: 'Common mistakes',
+              body:
+                  "• Confusing press volume with behavior change — a fad dominates headlines; a trend shows up in adoption and spending data across multiple years.\n• Citing a single report — one consultancy's forecast is marketing; three independent sources moving the same direction is evidence.\n• Answering 'why now' with 'nobody has done it' — usually somebody tried; find out why they failed before assuming the door is open.\n• Importing global timing into your local market — a wave cresting in the US may be three years away (or already owned by an incumbent) where you operate; check local numbers.",
+            ),
+            LessonBlock(
               heading: 'Key takeaway',
               body:
                   "Ride a current, don't fight one. Your 'why now' answer should name a real, recent change — if nothing changed, ask why this hasn't been done already.",
+            ),
+            LessonBlock(
+              heading: 'Do this now',
+              body:
+                  "Write your 'why now' answer in one sentence that names a specific recent change — a cost that dropped, a regulation that shifted, a behavior that spread. Then find two independent data points supporting it and paste the links directly under the sentence.",
             ),
           ],
         ),
@@ -397,9 +507,19 @@ const tier2 = CourseTier(
                   "• List 5–10 competitors across all three types. For each: target customer, pricing, strongest feature, weakest point (read their negative reviews).\n• Pick the two axes your persona actually decides on (e.g., price vs. ease, speed vs. depth) — not the ones flattering you.\n• Plot everyone. Find the empty corner that real customers want occupied.\n• Write your positioning sentence: 'For [segment], we are the only [category] that [key difference].'",
             ),
             LessonBlock(
+              heading: 'Common mistakes',
+              body:
+                  "• Claiming 'no competitors' — the status quo (a spreadsheet, a notebook, a cousin who helps out) competes for the same money; put it on the map.\n• Picking map axes that flatter you — plot the two dimensions your persona actually decides on, even if that lands you in a crowd.\n• Studying only feature grids — pricing pages, sales motion, and one-star reviews reveal a competitor's real weaknesses far better than their feature list.\n• Positioning as 'better at everything' — one wedge you can defend ('the only X for Y') beats ten small advantages nobody remembers.",
+            ),
+            LessonBlock(
               heading: 'Key takeaway',
               body:
                   "Your biggest competitor is usually the customer doing nothing. Map the field honestly, then claim one wedge you can defend — not ten you can't.",
+            ),
+            LessonBlock(
+              heading: 'Do this now',
+              body:
+                  "Pick your three closest competitors and spend 20 minutes reading their most recent negative reviews. List the three complaints that keep repeating — each one is either your wedge or a warning about the whole market.",
             ),
           ],
         ),
@@ -453,9 +573,19 @@ const tier2 = CourseTier(
                   "• Quantify the value: what does your product save or earn the customer per month? Price at a fraction of that number.\n• Anchor against alternatives: what do they pay today, including the cost of the manual workaround?\n• Test by selling, not surveying: propose a real price and watch behavior. Too-easy yeses mean too cheap.\n• Default higher than comfortable: if nobody flinches, you've underpriced.",
             ),
             LessonBlock(
+              heading: 'Common mistakes',
+              body:
+                  "• Pricing from your costs up instead of customer value down — cost-plus caps you at commodity margins even when the value delivered is 10× higher.\n• Asking 'would you pay X?' in surveys — people are polite; only a real ask with a real price produces truth.\n• Underpricing to 'win customers first' — cheap attracts the most demanding, least loyal buyers, and the eventual price raise becomes a churn event.\n• Discounting at the first flinch — one hesitation isn't rejection; hold the price and re-sell the value before you cut anything.",
+            ),
+            LessonBlock(
               heading: 'Key takeaway',
               body:
                   "Price on value delivered, not cost incurred. When in doubt, go higher — the market corrects overpricing loudly and underpricing silently.",
+            ),
+            LessonBlock(
+              heading: 'Do this now',
+              body:
+                  "Compute the monthly value your product delivers to one real customer — hours saved × their hourly cost, or revenue gained. Set a price at 10–20% of that number and quote it to your next prospect without flinching.",
             ),
           ],
         ),
@@ -480,9 +610,19 @@ const tier2 = CourseTier(
                   "• Pick the unit that matches your revenue model: subscription → one customer-month; marketplace → one transaction; service → one job.\n• List everything one unit truly costs, including allocated labor time at real wages.\n• Compute unit margin = unit revenue − unit variable cost. Then margin % of price.\n• Track it monthly from your real data — the trend matters more than the first snapshot.",
             ),
             LessonBlock(
+              heading: 'Common mistakes',
+              body:
+                  "• Picking a vanity unit — measuring per signup when revenue arrives per order hides the loss inside every delivery.\n• Leaving labor out of variable cost — a Dhaka grocery-delivery order that takes 20 minutes of staff time plus a 60-taka rider fee can be underwater even when the goods margin looks healthy.\n• Averaging across segments — big and small customers can have opposite margins; a blended number hides which half is bleeding.\n• Computing it once and framing it — discounts, refunds, and support load drift the margin every month; a stale number is false comfort.",
+            ),
+            LessonBlock(
               heading: 'Key takeaway',
               body:
                   "Know what one unit earns and costs before you scale anything. Volume amplifies whatever sign the margin has — make sure it's positive.",
+            ),
+            LessonBlock(
+              heading: 'Do this now',
+              body:
+                  "Take your last ten real orders — or simulate ten realistic ones. For each, write the revenue, then subtract goods, delivery, payment fees, and minutes of labor at a real wage. Average the result: that one number tells you whether to fix price, cost, or the model itself.",
             ),
           ],
         ),
@@ -507,9 +647,19 @@ const tier2 = CourseTier(
                   "• CAC: include everything — ad spend, tools, agency fees, and founder hours at a market wage, divided by NEW customers only.\n• LTV: use margin, not revenue; use observed retention, not hoped-for retention. Early on, cap lifetime at 12–24 months to stay conservative.\n• Target LTV ≥ 3× CAC as a health line, and check payback: how many months until a customer repays their CAC? Under 12 keeps you fundable and alive.\n• Recompute quarterly — both numbers move as you scale.",
             ),
             LessonBlock(
+              heading: 'Common mistakes',
+              body:
+                  "• Excluding founder time from CAC — if you spend 20 hours a week selling, those customers are not 'free'; price your hours in or the number lies.\n• Using revenue instead of margin in LTV — a customer paying \$100/month at 20% margin is worth \$20/month, not \$100.\n• Assuming forever retention — hope is not a cohort; cap lifetime at 12–24 months until observed churn says otherwise.\n• Averaging CAC across channels — one channel at \$30 and another at \$300 blend into a meaningless number; compute per channel and kill the loser.",
+            ),
+            LessonBlock(
               heading: 'Key takeaway',
               body:
                   "Growth is only good if a customer returns meaningfully more than they cost to win. Compute both numbers with brutal honesty — flattering yourself here is self-sabotage.",
+            ),
+            LessonBlock(
+              heading: 'Do this now',
+              body:
+                  "Add up everything you spent on sales and marketing last month — ads, tools, and your own hours at a market wage — and divide by new customers won. Write that CAC next to a conservative LTV (monthly margin × 12 months of observed retention) and check the ratio against the 3× line.",
             ),
           ],
         ),
@@ -534,9 +684,19 @@ const tier2 = CourseTier(
                   "• Contribution margin = price − variable cost per unit (from your unit economics lesson).\n• Break-even units = monthly fixed costs ÷ contribution margin. Convert to revenue: units × price.\n• Sanity-check: is that volume plausible for your channel and market within 12–18 months?\n• Use it for decisions: every new fixed cost (a hire, an office) raises break-even — compute by how much before saying yes.",
             ),
             LessonBlock(
+              heading: 'Common mistakes',
+              body:
+                  "• Computing break-even at list price — discounts, promos, and refunds mean the average realized price is lower; use that or the target is fiction.\n• Adding fixed costs without recomputing — a hire adding \$2,000/month of fixed cost raises break-even by \$2,000 ÷ your unit margin; do that division before saying yes.\n• Chasing a break-even volume your market can't supply — if the required sales exceed your SOM, no amount of hustle fixes the model.\n• Treating break-even as the finish line — it's the survival line; plan the margin needed to fund growth beyond it.",
+            ),
+            LessonBlock(
               heading: 'Key takeaway',
               body:
                   "Know your break-even by heart. It's the line between a company burning savings and one paying for itself — and every spending decision moves it.",
+            ),
+            LessonBlock(
+              heading: 'Do this now',
+              body:
+                  "Divide your monthly fixed costs by your contribution margin per unit and write the result — your break-even units — on a sticky note. Check it against your Week 6 market sizing: if that volume isn't plausible within 18 months, change your price or your costs today.",
             ),
           ],
         ),

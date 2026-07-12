@@ -7,6 +7,7 @@ import '../../app/routes.dart';
 import '../../data/courses/startup_101.dart';
 import '../../data/models/course_model.dart';
 import '../../data/providers/course_progress_provider.dart';
+import '../../widgets/motion.dart';
 import '../../widgets/responsive.dart';
 import 'course_celebration.dart';
 
@@ -57,18 +58,24 @@ class CourseWeekScreen extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 20),
               sliver: SliverList(
                 delegate: SliverChildBuilderDelegate(
-                  (context, i) => Padding(
-                    padding: const EdgeInsets.only(bottom: AppSpacing.sm),
-                    child: _LessonTile(
-                      week: week,
-                      index: i,
-                      color: tier.color,
-                      done: provider.isItemDone(week.id, 'lesson.$i'),
-                      onToggle: () {
-                        if (provider.toggleWeekItem(week, 'lesson.$i')) {
-                          celebrateWeek(week);
-                        }
-                      },
+                  (context, i) => FadeSlideIn(
+                    delay: Duration(milliseconds: 40 * i),
+                    child: Padding(
+                      padding: const EdgeInsets.only(bottom: AppSpacing.sm),
+                      child: _LessonTile(
+                        week: week,
+                        index: i,
+                        color: tier.color,
+                        done: provider.isItemDone(week.id, 'lesson.$i'),
+                        onToggle: () {
+                          if (provider.toggleWeekItem(week, 'lesson.$i')) {
+                            celebrateWeek(week);
+                          } else if (provider.isItemDone(
+                              week.id, 'lesson.$i')) {
+                            celebrateXp(CourseProgressProvider.lessonXp);
+                          }
+                        },
+                      ),
                     ),
                   ),
                   childCount: week.lessons.length,
@@ -90,6 +97,9 @@ class CourseWeekScreen extends StatelessWidget {
                       onTap: () {
                         if (provider.toggleWeekItem(week, 'workshop')) {
                           celebrateWeek(week);
+                        } else if (provider.isItemDone(week.id, 'workshop')) {
+                          celebrateXp(CourseProgressProvider.workshopXp,
+                              label: 'Workshop shipped!');
                         }
                       },
                     ),
@@ -104,6 +114,9 @@ class CourseWeekScreen extends StatelessWidget {
                       onTap: () {
                         if (provider.toggleWeekItem(week, 'assignment')) {
                           celebrateWeek(week);
+                        } else if (provider.isItemDone(week.id, 'assignment')) {
+                          celebrateXp(CourseProgressProvider.assignmentXp,
+                              label: 'Deliverable shipped!');
                         }
                       },
                     ),
@@ -361,23 +374,7 @@ class _LessonTile extends StatelessWidget {
               onTap: onToggle,
               child: Padding(
                 padding: const EdgeInsets.all(4),
-                child: AnimatedContainer(
-                  duration: const Duration(milliseconds: 180),
-                  width: 26,
-                  height: 26,
-                  decoration: BoxDecoration(
-                    color: done ? color : Colors.transparent,
-                    borderRadius: BorderRadius.circular(8),
-                    border: Border.all(
-                      color: done ? color : AppColors.textHint,
-                      width: 2,
-                    ),
-                  ),
-                  child: done
-                      ? const Icon(Icons.check_rounded,
-                          color: Colors.white, size: 17)
-                      : null,
-                ),
+                child: BouncyCheck(done: done, color: color),
               ),
             ),
           ],
@@ -476,23 +473,7 @@ class _CheckTile extends StatelessWidget {
               ),
             ),
             const SizedBox(width: AppSpacing.md),
-            AnimatedContainer(
-              duration: const Duration(milliseconds: 180),
-              width: 26,
-              height: 26,
-              decoration: BoxDecoration(
-                color: done ? color : Colors.transparent,
-                borderRadius: BorderRadius.circular(8),
-                border: Border.all(
-                  color: done ? color : AppColors.textHint,
-                  width: 2,
-                ),
-              ),
-              child: done
-                  ? const Icon(Icons.check_rounded,
-                      color: Colors.white, size: 17)
-                  : null,
-            ),
+            BouncyCheck(done: done, color: color),
           ],
         ),
       ),
@@ -632,11 +613,12 @@ class _MilestoneCard extends StatelessWidget {
               color: color.withValues(alpha: 0.14),
               borderRadius: BorderRadius.circular(AppRadius.md),
             ),
-            child: Icon(
-              unlocked ? Icons.emoji_events_rounded : Icons.lock_rounded,
-              color: color,
-              size: 24,
-            ),
+            child: unlocked
+                ? const PopIn(
+                    child: Icon(Icons.emoji_events_rounded,
+                        color: AppColors.success, size: 24),
+                  )
+                : Icon(Icons.lock_rounded, color: color, size: 24),
           ),
           const SizedBox(width: AppSpacing.lg),
           Expanded(

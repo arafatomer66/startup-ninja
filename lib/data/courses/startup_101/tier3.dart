@@ -36,9 +36,19 @@ const tier3 = CourseTier(
                   "• Set a personal quota: a fixed number of outreach conversations per week, tracked like a metric.\n• Treat every 'no' as data: log the objection verbatim — patterns in objections are your real roadmap.\n• Don't hire a salesperson until YOU have closed enough customers to write the playbook you'd hand them.\n• Reframe discomfort: you're not begging, you're offering to fix a problem they told you they have.",
             ),
             LessonBlock(
+              heading: 'Common mistakes',
+              body:
+                  "• Hiring a salesperson before you've closed 10 deals yourself — they inherit no playbook, miss quota, and you conclude 'sales doesn't work' instead of 'we hired too early'.\n• Sending the 'people person' co-founder while the product founder stays out — raw objections never reach the person who can change the product mid-conversation.\n• Counting demos instead of asks — twenty friendly conversations that never end in 'will you pay?' teach you nothing about willingness to pay.\n• Taking rejection personally and slowing outreach — a 'no' with a logged objection is a productive call; silence is the only real failure.",
+            ),
+            LessonBlock(
               heading: 'Key takeaway',
               body:
                   "Founder-led sales isn't a phase to skip — it's where product, pricing, and pitch get forged. Sell first, hire sellers after you've written the playbook.",
+            ),
+            LessonBlock(
+              heading: 'Do this now',
+              body:
+                  "Block three 45-minute slots in your calendar this week labeled 'founder sales'. Then message five people from your interview or network list asking for a 15-minute call about the problem — send all five messages before you close this lesson.",
             ),
           ],
         ),
@@ -63,9 +73,19 @@ const tier3 = CourseTier(
                   "• Go where the pain is discussed: find the 3 communities where your persona already complains about this problem.\n• Warm intros first: your Week 3 network and Week 2 interviewees are your fastest path — ask each for one intro.\n• Cold outreach that works is specific: name their problem, show you understand it, ask for 15 minutes. No feature lists.\n• Do things that don't scale: onboard by hand, deliver personally, over-serve absurdly. At 10 customers, scale is not the goal — love is.",
             ),
             LessonBlock(
+              heading: 'Common mistakes',
+              body:
+                  "• Chasing big-logo customers first — their procurement cycles run months and their feature demands warp your roadmap before you have any revenue.\n• Spraying generic cold messages — 'check out my startup' gets ignored; a message that names their specific problem gets replies.\n• Pitching in the wrong room — in Bangladesh most SMB owners run their business inside Facebook groups and WhatsApp; if that's where your buyer lives, polished LinkedIn outreach is shouting into an empty hall.\n• Declaring a channel dead after five attempts — outreach data means nothing before 30–50 tries with a consistent message.",
+            ),
+            LessonBlock(
               heading: 'Key takeaway',
               body:
                   "Hunt early adopters where they already gather, arrive through trust, and over-serve them shamelessly. The first 100 are recruited one at a time.",
+            ),
+            LessonBlock(
+              heading: 'Do this now',
+              body:
+                  "List the three online communities where your target customer already discusses this problem, and join all three today. Post nothing yet — spend 20 minutes reading the last week of activity and write down five verbatim complaints that match your problem.",
             ),
           ],
         ),
@@ -90,9 +110,19 @@ const tier3 = CourseTier(
                   "• First third: questions only. 'Walk me through how you handle X today. What does that cost you?'\n• Middle: mirror their words back — pitch your product as the answer to the exact pain they named.\n• Objections: pause, clarify ('what's behind that concern?'), answer honestly, check ('does that resolve it?'). Price objections usually mean value wasn't established — return to the cost of the problem.\n• Close explicitly: 'Shall we start with a one-month pilot at [price]?' Silence after the ask; the next person to speak sets the terms.",
             ),
             LessonBlock(
+              heading: 'Common mistakes',
+              body:
+                  "• Opening with a demo — you spend your credibility before knowing which pain to aim at; spend the first third of the call on questions instead.\n• Answering a price objection with a discount — the objection usually means value wasn't established; return to what the problem costs them per month.\n• Ending with 'I'll send over more information' — that's a no in disguise; always propose a specific next step with a date attached.\n• Talking through the silence after your close — the first person to speak after the ask sets the terms, so let it hang.",
+            ),
+            LessonBlock(
               heading: 'Key takeaway',
               body:
                   "Diagnose, then prescribe, then ask. A specific close attempted is worth ten perfect pitches that end with 'let me think about it.'",
+            ),
+            LessonBlock(
+              heading: 'Do this now',
+              body:
+                  "Write your close sentence word-for-word — 'Shall we start with a one-month pilot at [your price]?' — plus your three most likely objections with one honest answer each. Keep it visible next to your screen for your next call.",
             ),
           ],
         ),
@@ -117,9 +147,19 @@ const tier3 = CourseTier(
                   "• Time the ask to a success moment: right after they hit a result or say something positive — not at contract renewal.\n• Make it effortless: 'Is there one other [role] you know who deals with this? Happy to draft the intro note so you can just forward it.'\n• Testimonials: ask one question — 'what changed since you started using us?' — and get permission to quote the answer.\n• Close the loop: thank referrers, tell them the outcome, and over-serve them. Referrers who feel valued refer again.",
             ),
             LessonBlock(
+              heading: 'Common mistakes',
+              body:
+                  "• Waiting for referrals to happen naturally — happy customers rarely volunteer intros; the ask has to be built into your process or it never happens.\n• Asking at invoice or renewal time — pair the ask with a success moment, not a payment moment, or it reads as a trade.\n• Requesting vague 'feedback' instead of a quotable line — ask 'what changed since you started using us?' and get permission to quote the answer.\n• Never closing the loop with referrers — people stop referring when they never hear what happened; a thank-you with the outcome keeps the engine running.",
+            ),
+            LessonBlock(
               heading: 'Key takeaway',
               body:
                   "Referrals are earned by results but harvested by asking. Build the ask into your process at the moment of customer success — every time.",
+            ),
+            LessonBlock(
+              heading: 'Do this now',
+              body:
+                  "Pick your single happiest customer and send them a two-line message right now: thank them for one specific result, then ask 'Is there one other [role] you know who deals with this? I'll draft the intro so you can just forward it.'",
             ),
           ],
         ),
@@ -178,9 +218,19 @@ const tier3 = CourseTier(
                   "• Define each stage concretely for YOUR product: what exact action counts as activated? As retained?\n• Measure the conversion between every adjacent stage, even roughly, even in a spreadsheet.\n• Find the worst leak and work only on that until it's no longer the constraint.\n• Fix retention before scaling acquisition — filling a leaky bucket faster just spills more.",
             ),
             LessonBlock(
+              heading: 'Common mistakes',
+              body:
+                  "• Pouring budget into acquisition while activation leaks — doubling traffic into a step that loses 90% of it just doubles the waste; fix the leak first.\n• Defining stages vaguely — 'engaged user' means nothing; activation must be one concrete action, like 'created their first invoice within 24 hours'.\n• Tracking everything and acting on nothing — five stage-to-stage conversion numbers reviewed weekly beat forty dashboard charts nobody reads.\n• Benchmarking against industry averages instead of your own last month — the only funnel you can act on is yours, over time.",
+            ),
+            LessonBlock(
               heading: 'Key takeaway',
               body:
                   "Growth is a funnel, not a firehose. Measure every stage, find the binding leak, and fix stages in order — retention before acquisition, always.",
+            ),
+            LessonBlock(
+              heading: 'Do this now',
+              body:
+                  "Draw your funnel on paper: one concrete user action next to each AARRR stage for your product. Fill in real or estimated conversion rates between stages and circle the worst one — that circle is your only growth priority this month.",
             ),
           ],
         ),
@@ -205,9 +255,19 @@ const tier3 = CourseTier(
                   "• Pick ONE channel: the intersection of where your persona actually looks and what you can sustainably produce.\n• Answer real questions: your Week 2 interviews are a content goldmine — every pain point is an article title.\n• Consistency beats brilliance: one solid piece weekly for six months beats ten pieces in week one and silence after.\n• Measure conversions, not applause: traffic and likes are inputs; signups and sales are the score.",
             ),
             LessonBlock(
+              heading: 'Common mistakes',
+              body:
+                  "• Launching on three channels at once — effort spread that thin never crosses the threshold where any single channel works; win one first.\n• Writing about your product instead of the customer's problem — nobody searches for your feature names; they search for their pain in their own words.\n• Quitting at week six — organic compounding starts around months three to six; stopping early forfeits everything already invested.\n• Measuring applause instead of customers — put one clear next step (subscribe, trial, book a call) at the end of every piece and track who takes it.",
+            ),
+            LessonBlock(
               heading: 'Key takeaway',
               body:
                   "Choose one organic channel you can win, publish consistently for months, and judge it by customers — not claps. Compounding only works if you don't stop.",
+            ),
+            LessonBlock(
+              heading: 'Do this now',
+              body:
+                  "Turn your five most painful customer-interview quotes into five article or video titles your customer would actually search for. Pick one and write its outline — three headers plus the opening paragraph — in the next 25 minutes.",
             ),
           ],
         ),
@@ -232,9 +292,19 @@ const tier3 = CourseTier(
                   "• Set the math first: your Week 7 LTV caps what you can pay per customer. Know the ceiling before spending.\n• Start tiny: a small daily budget, 2–3 ad variants, ONE audience. Change one variable at a time.\n• Send traffic to a page built for the ad's promise — mismatched landing pages waste every click.\n• Kill fast, scale slow: cut ads that don't pay back within your window; add budget only to proven winners.",
             ),
             LessonBlock(
+              heading: 'Common mistakes',
+              body:
+                  "• Hitting 'boost post' and hoping — boosting optimizes for engagement, not customers; a Dhaka shop owner boosting to 'people who like similar pages' buys likes from people who will never order. Build a proper campaign with a conversion objective instead.\n• Spending before knowing your CAC ceiling — if a customer is worth 5,000 in lifetime value and each one costs 6,000 to acquire, scaling the ads just accelerates the loss.\n• Sending ad clicks to your homepage — the landing page must repeat the ad's exact promise, or every click leaks.\n• Changing three variables between tests — you learn nothing about which change worked; alter one at a time.",
+            ),
+            LessonBlock(
               heading: 'Key takeaway',
               body:
                   "Ads are an experiment engine with a gas pedal. Know your CAC ceiling, test small, kill losers without sentiment, and only then press the pedal.",
+            ),
+            LessonBlock(
+              heading: 'Do this now',
+              body:
+                  "Calculate your maximum allowable CAC: take your LTV estimate from Week 7 and divide by three. Write that number somewhere you'll see it, and refuse to launch any ad test without a plan to measure cost per signup against it.",
             ),
           ],
         ),
@@ -259,9 +329,19 @@ const tier3 = CourseTier(
                   "• Keep a backlog of experiment ideas, scored on impact / confidence / ease. Run the top one.\n• Write the hypothesis and success number BEFORE launching. No exceptions.\n• One experiment at a time per funnel stage — parallel changes make results unreadable.\n• Hold a weekly review: verdict, learning, next experiment. The learning log becomes your growth playbook.",
             ),
             LessonBlock(
+              heading: 'Common mistakes',
+              body:
+                  "• Setting the success threshold after seeing the results — every ambiguous outcome becomes a 'win'; commit to the number before launch, in writing.\n• Running tests too small to read — ten visitors can't validate anything; size the experiment so a real effect would actually be visible.\n• Ending experiments early on excitement — day-two spikes routinely regress; run the full pre-committed window before calling a verdict.\n• Discarding losers without logging the learning — a failed test that proves 'discount framing doesn't move our buyers' is an asset; an unlogged one is pure cost.",
+            ),
+            LessonBlock(
               heading: 'Key takeaway',
               body:
                   "Growth is a search process: hypothesis, smallest test, honest verdict, repeat. The founders who compound learnings outgrow the ones who compound tactics.",
+            ),
+            LessonBlock(
+              heading: 'Do this now',
+              body:
+                  "Write one experiment card, right now: 'We believe [change] will improve [metric] by [amount] because [reason]. We'll run it for [days] and call it a win at [threshold].' Put the launch on this week's calendar.",
             ),
           ],
         ),
@@ -320,9 +400,19 @@ const tier3 = CourseTier(
                   "• For one week, log every task you do more than once. That list is your process backlog.\n• Prioritize by frequency × pain: document the thing you do most often and hate most, first.\n• Document by doing: next time you perform the task, write each step as you go — 30 minutes, done.\n• Test the document: have someone else follow it without your help. Where they stumble, the doc is wrong.",
             ),
             LessonBlock(
+              heading: 'Common mistakes',
+              body:
+                  "• Trying to document everything at once — a 40-process backlog stalls in week one; document the single most frequent, most hated task first and ship it.\n• Writing processes from memory at a desk — steps get skipped; document while actually performing the task.\n• Never testing the doc on another human — if your helper stumbles at step four, the doc is wrong, not the helper.\n• Treating a documented process as finished — the first time reality diverges from the doc, update it on the spot or it quietly dies.",
+            ),
+            LessonBlock(
               heading: 'Key takeaway',
               body:
                   "Every repeated task is a process waiting to be written down. Documenting them is how the business stops being you and starts being a company.",
+            ),
+            LessonBlock(
+              heading: 'Do this now',
+              body:
+                  "Start a 'repeated tasks' note on your phone and seed it right now with the first three recurring tasks you can think of. Add to it every time you touch a repeated task this week — that list is your SOP backlog.",
             ),
           ],
         ),
@@ -347,9 +437,19 @@ const tier3 = CourseTier(
                   "• One page maximum. Numbered steps, plain language, visuals over prose.\n• Store them where the work happens — linked from the tool, pinned in the channel — not in a buried folder.\n• Assign each SOP an owner responsible for keeping it current.\n• Update ritual: whoever finds a step wrong fixes it on the spot. An SOP is living code, not a framed rule.",
             ),
             LessonBlock(
+              heading: 'Common mistakes',
+              body:
+                  "• Writing a manual when the job needs a checklist — if reading it takes longer than doing the task, nobody opens it twice.\n• Burying SOPs in a folder nobody visits — link each one from the tool or channel where the work actually happens.\n• Leaving SOPs ownerless — with no named owner, the first outdated step kills the team's trust in all of them.\n• Requiring permission to edit — if fixing a wrong step needs approval, the SOP freezes while reality walks away from it.",
+            ),
+            LessonBlock(
               heading: 'Key takeaway',
               body:
                   "Write SOPs like checklists, keep them where the work happens, and let the team edit them freely. A slightly scruffy SOP that's used beats a beautiful one that isn't.",
+            ),
+            LessonBlock(
+              heading: 'Do this now',
+              body:
+                  "Take the most frequent task from your repeated-tasks list and write its SOP on one page: trigger, owner, numbered steps, definition of done. Write it while performing the task once — 30 minutes, done.",
             ),
           ],
         ),
@@ -374,9 +474,19 @@ const tier3 = CourseTier(
                   "• Automate what is frequent, rule-based, and boring. Keep human what is rare, judgment-based, or relationship-building.\n• Follow the rule of three: do it manually three times first — you can't automate a process you don't understand.\n• Estimate payback: hours saved per month vs. hours to set up. Automate when it pays back within a quarter.\n• Prefer fewer tools, deeply used, over many tools shallowly adopted. Every tool adds a seam that can leak.",
             ),
             LessonBlock(
+              heading: 'Common mistakes',
+              body:
+                  "• Automating a process you haven't run manually three times — you encode a broken workflow, and now it breaks faster and invisibly.\n• Adopting a new tool for every problem — each extra tool adds a seam where data leaks and logins rot; stretch the tools you already have first.\n• Automating judgment calls — refund decisions and relationship messages need a human; automating them produces polished mistakes at scale.\n• Ignoring the payback math — a two-day setup that saves ten minutes a month is a hobby, not an automation.",
+            ),
+            LessonBlock(
               heading: 'Key takeaway',
               body:
                   "Do it manually three times, then automate if it's frequent and rule-based. Buy back founder hours ruthlessly — they're the company's real currency.",
+            ),
+            LessonBlock(
+              heading: 'Do this now',
+              body:
+                  "List the three tasks you did this week that were pure copy-paste between two tools. Pick the most frequent one and spend 20 minutes checking whether your existing tools can connect directly — if they can, set it up on the spot.",
             ),
           ],
         ),
@@ -401,9 +511,19 @@ const tier3 = CourseTier(
                   "• Map one core process end-to-end and mark where work piles up — queues are bottleneck fingerprints.\n• Ask: 'what is everyone waiting on?' The answer is usually a person (often you) or an approval.\n• Fix in order of cheapness: remove the step entirely → delegate it → parallelize it → speed it up.\n• Re-measure after each fix. The bottleneck moves; the hunt is permanent.",
             ),
             LessonBlock(
+              heading: 'Common mistakes',
+              body:
+                  "• Polishing non-constraints — a faster website means nothing while every order still waits a day for one person's approval; improving anything except the bottleneck improves nothing.\n• Not noticing the bottleneck is you — like a Dhaka delivery business where every order waits for the owner to personally confirm the bKash payment: growth stays capped at the owner's waking hours until that check is delegated or automated.\n• Jumping straight to 'speed it up' — removing or delegating the step is usually cheaper and more effective than accelerating it.\n• Fixing once and moving on — the constraint moves after every fix; re-measure or you'll spend next month optimizing last month's problem.",
+            ),
+            LessonBlock(
               heading: 'Key takeaway',
               body:
                   "Improve the constraint and you improve the company; improve anything else and you've improved a report. Find where work waits — that's your real to-do list.",
+            ),
+            LessonBlock(
+              heading: 'Do this now',
+              body:
+                  "Sketch your single most important process — lead to cash, or order to delivery — as boxes on paper, and mark where work sits waiting. Circle the longest queue and write one sentence: who or what is everyone waiting on?",
             ),
           ],
         ),
@@ -461,9 +581,19 @@ const tier3 = CourseTier(
                   "• Hire against a bottleneck (Week 10): what constraint, if removed, most accelerates revenue or product?\n• Systematize before you delegate: an SOP-backed role gets a new hire productive in days.\n• Prefer slope over pedigree early: learning speed and ownership beat impressive logos.\n• Write the role as outcomes ('own customer onboarding; 90% activation in 30 days'), not activity lists.",
             ),
             LessonBlock(
+              heading: 'Common mistakes',
+              body:
+                  "• Hiring because you're busy rather than against a named bottleneck — busyness is usually un-systematized chaos, and the hire inherits it with less context than you have.\n• Hiring a manager before there's anything to manage — early hires should do the work, not coordinate it.\n• Writing the role as an activity list — 'handle social media' attracts task-doers; 'own activation, hit 90% in 30 days' attracts owners.\n• Hiring a cheaper 'junior version' to save salary — in a five-person team, one weak hire is 20% of total output and 20% of the culture.",
+            ),
+            LessonBlock(
               heading: 'Key takeaway',
               body:
                   "Hire late, hire slope, hire against a named bottleneck — and hand every new hire a documented process, not a pile of chaos.",
+            ),
+            LessonBlock(
+              heading: 'Do this now',
+              body:
+                  "Write down the single constraint that most limits your revenue this month, then draft a one-paragraph, outcome-based role description for the hire that would remove it. Even if you won't hire for six months, this paragraph becomes your hiring trigger.",
             ),
           ],
         ),
@@ -488,9 +618,19 @@ const tier3 = CourseTier(
                   "• Define 4–5 scorable criteria from the role's outcomes before meeting anyone.\n• Interview for evidence: 'tell me about a time you…' — past behavior over hypothetical answers.\n• Always run a paid work sample sized at 2–4 hours. Watch for questions asked as much as output.\n• References: 'compared to others in this role, where did they rank? What would they need to improve?' Listen for hesitation.\n• Close like a founder: share the mission, the growth they'll get, and equity where it fits. Speed itself is a differentiator.",
             ),
             LessonBlock(
+              heading: 'Common mistakes',
+              body:
+                  "• Interviewing on vibes with different questions per candidate — you end up ranking charm; fix the questions and score every candidate against the same criteria.\n• Skipping the paid work sample — it's the strongest performance predictor a small company has; two hours of real task beats ten interviews.\n• Competing on salary you can't pay — a Dhaka startup won't outbid a multinational bank on taka, but it can offer real ownership, faster growth, and a direct line to the founder; sell those explicitly instead of apologizing for the salary.\n• Moving slowly with a strong candidate — great people have options this week, not next quarter; a slow process is a silent rejection.",
+            ),
+            LessonBlock(
               heading: 'Key takeaway',
               body:
                   "Structure the interview, pay for a work sample, and check references like an investigator. Then close with what startups uniquely offer: growth, ownership, and meaning.",
+            ),
+            LessonBlock(
+              heading: 'Do this now',
+              body:
+                  "Design the paid work sample for your most likely first hire: one real task from the actual job, sized at 2–4 hours, with the payment amount and what you'll watch for. Twenty minutes now means it's ready the day you need it.",
             ),
           ],
         ),
@@ -515,9 +655,19 @@ const tier3 = CourseTier(
                   "• List the company's 5–7 critical outcomes. Write ONE name next to each. Gaps and double-bookings will be obvious.\n• Give everyone a scorecard: the few numbers that define success in their role. Review monthly.\n• Weekly rhythm: each person states last week's commitments (done/not) and this week's. Fifteen minutes, in public.\n• Owner ≠ doer of everything: the owner ensures it happens and raises the flag early when it won't.",
             ),
             LessonBlock(
+              heading: 'Common mistakes',
+              body:
+                  "• Letting outcomes belong to 'the team' — shared ownership means dropped balls belong to no one; every outcome needs exactly one name.\n• Making the owner do everything — the owner's job is to ensure it happens and flag risk early, not to be the only pair of hands.\n• Importing big-company process at four people — OKR software and approval chains are theater; outcomes with names plus a weekly 15-minute check is the whole system.\n• Reviewing commitments privately — public weekly commitments create gentle peer accountability that no amount of manager chasing can match.",
+            ),
+            LessonBlock(
               heading: 'Key takeaway',
               body:
                   "Accountability is one name per outcome plus a weekly public rhythm. That's the whole system — anything more is bureaucracy you don't need yet.",
+            ),
+            LessonBlock(
+              heading: 'Do this now',
+              body:
+                  "List your company's five to seven critical outcomes and write exactly one name next to each — including the ones that land on you. Mark where one person owns too much or a critical outcome has no owner; that's your next team conversation.",
             ),
           ],
         ),
@@ -542,9 +692,19 @@ const tier3 = CourseTier(
                   "• Have the hard conversation now: roles, decision rights, salary expectations, hours, and what happens on departure. Write down the answers.\n• Split equity based on forward contribution, not just the idea — and put EVERY founder on vesting with a cliff, including yourself.\n• Paper it properly: a founders' agreement with IP assignment, signed before the company is worth arguing over.\n• Culture: write 3 principles that are real trade-offs ('speed over polish'), not posters ('excellence'). Use them in actual decisions weekly.",
             ),
             LessonBlock(
+              heading: 'Common mistakes',
+              body:
+                  "• Splitting equity 50/50 by default to dodge the awkward talk — the talk delayed becomes a lawyer's letter later; split on forward contribution and write down the reasoning.\n• Skipping vesting because 'we trust each other' — trust doesn't cover a co-founder leaving in month six with a permanent quarter of the company.\n• Leaving IP assignment unsigned — code and designs written before incorporation legally belong to the person, not the company, until papered.\n• Writing aspirational posters instead of trade-offs — 'excellence' decides nothing; 'speed over polish' actually resolves an argument.",
+            ),
+            LessonBlock(
               heading: 'Key takeaway',
               body:
                   "Vesting for everyone, hard conversations early, agreements in writing, and culture as three real trade-offs you actually use. Cheap now, priceless later.",
+            ),
+            LessonBlock(
+              heading: 'Do this now',
+              body:
+                  "Book a two-hour co-founder conversation this week and send the agenda now: roles, decision rights, salary expectations, commitment level, and what happens if someone leaves. Solo founder? Spend the 30 minutes drafting your three trade-off culture principles instead.",
             ),
           ],
         ),

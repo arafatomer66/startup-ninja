@@ -8,6 +8,7 @@ import '../../data/courses/startup_101.dart';
 import '../../data/courses/startup_101/bookshelf.dart';
 import '../../data/models/course_model.dart';
 import '../../data/providers/course_progress_provider.dart';
+import '../../widgets/motion.dart';
 import '../../widgets/responsive.dart';
 
 class CourseScreen extends StatelessWidget {
@@ -28,9 +29,11 @@ class CourseScreen extends StatelessWidget {
               child: _CourseHero(provider: provider, percent: percent),
             ),
             SliverToBoxAdapter(
-              child: Padding(
-                padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
-                child: _ContinueCard(provider: provider),
+              child: FadeSlideIn(
+                child: Padding(
+                  padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
+                  child: _ContinueCard(provider: provider),
+                ),
               ),
             ),
             for (final tier in startup101Tiers) ...[
@@ -41,12 +44,15 @@ class CourseScreen extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 sliver: SliverList(
                   delegate: SliverChildBuilderDelegate(
-                    (context, i) => Padding(
-                      padding: const EdgeInsets.only(bottom: AppSpacing.md),
-                      child: _WeekCard(
-                        week: tier.weeks[i],
-                        tier: tier,
-                        provider: provider,
+                    (context, i) => FadeSlideIn(
+                      delay: Duration(milliseconds: 30 * i),
+                      child: Padding(
+                        padding: const EdgeInsets.only(bottom: AppSpacing.md),
+                        child: _WeekCard(
+                          week: tier.weeks[i],
+                          tier: tier,
+                          provider: provider,
+                        ),
                       ),
                     ),
                     childCount: tier.weeks.length,
@@ -325,10 +331,15 @@ class _CourseHero extends StatelessWidget {
                             ),
                             const SizedBox(width: 20),
                             _HeroStat(
-                              value: '${provider.courseDoneCount}',
-                              label: 'items done',
+                              value: '${provider.courseXp}',
+                              label: 'XP earned',
                             ),
                           ],
+                        ),
+                        const SizedBox(height: 12),
+                        _StreakChip(
+                          streak: provider.streak,
+                          doneToday: provider.streakDoneToday,
                         ),
                       ],
                     ),
@@ -369,6 +380,61 @@ class _CourseHero extends StatelessWidget {
               ),
             ],
           ),
+        ),
+      ),
+    );
+  }
+}
+
+/// Duolingo-style streak pill: lit flame when today counted, dim gray
+/// "start today" state when the chain is cold.
+class _StreakChip extends StatelessWidget {
+  final int streak;
+  final bool doneToday;
+
+  const _StreakChip({required this.streak, required this.doneToday});
+
+  @override
+  Widget build(BuildContext context) {
+    final lit = streak > 0;
+    final text = !lit
+        ? 'Start a streak — complete one lesson today'
+        : doneToday
+            ? '$streak day streak — today counted! 🔥'
+            : '$streak day streak — keep it alive today';
+
+    return PopIn(
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 7),
+        decoration: BoxDecoration(
+          color: Colors.white.withValues(alpha: lit ? 0.22 : 0.12),
+          borderRadius: BorderRadius.circular(40),
+          border: Border.all(
+            color: Colors.white.withValues(alpha: lit ? 0.4 : 0.2),
+          ),
+        ),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Icon(
+              Icons.local_fire_department_rounded,
+              size: 16,
+              color: lit ? const Color(0xFFFFC93C) : Colors.white54,
+            ),
+            const SizedBox(width: 6),
+            Flexible(
+              child: Text(
+                text,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+                style: const TextStyle(
+                  color: Colors.white,
+                  fontSize: 12,
+                  fontWeight: FontWeight.w700,
+                ),
+              ),
+            ),
+          ],
         ),
       ),
     );

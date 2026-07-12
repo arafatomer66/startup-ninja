@@ -4,8 +4,10 @@ import 'package:percent_indicator/percent_indicator.dart';
 import '../../app/theme.dart';
 import '../../app/routes.dart';
 import '../../data/models/kit_model.dart';
+import '../../data/providers/course_progress_provider.dart';
 import '../../data/providers/progress_provider.dart';
 import '../../data/services/blueprint_aggregator.dart';
+import '../../widgets/motion.dart';
 import '../../widgets/responsive.dart';
 import '../shell/shell_screen.dart';
 import 'widgets/course_card.dart';
@@ -17,6 +19,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final provider = Get.find<ProgressProvider>();
+    final courseProvider = Get.find<CourseProgressProvider>();
     final aggregator = Get.find<BlueprintAggregator>();
 
     return Obx(() {
@@ -41,18 +44,32 @@ class HomeScreen extends StatelessWidget {
                 completed: completed,
                 total: total,
                 percent: percent,
+                streak: courseProvider.streak,
+                streakDoneToday: courseProvider.streakDoneToday,
+                xp: courseProvider.courseXp,
               ),
             ),
             SliverToBoxAdapter(
-              child: _QuickStats(
-                  completed: completed, total: total, percent: percent),
-            ),
-            SliverToBoxAdapter(
-              child: NextActionCard(
-                blueprint: aggregator.build(startupKits),
+              child: FadeSlideIn(
+                delay: const Duration(milliseconds: 40),
+                child: _QuickStats(
+                    completed: completed, total: total, percent: percent),
               ),
             ),
-            const SliverToBoxAdapter(child: CourseCard()),
+            SliverToBoxAdapter(
+              child: FadeSlideIn(
+                delay: const Duration(milliseconds: 90),
+                child: NextActionCard(
+                  blueprint: aggregator.build(startupKits),
+                ),
+              ),
+            ),
+            const SliverToBoxAdapter(
+              child: FadeSlideIn(
+                delay: Duration(milliseconds: 140),
+                child: CourseCard(),
+              ),
+            ),
             SliverToBoxAdapter(
               child: Padding(
                 padding: const EdgeInsets.fromLTRB(20, 32, 20, 14),
@@ -90,8 +107,10 @@ class HomeScreen extends StatelessWidget {
                   mainAxisExtent: cols == 1 ? 132 : 142,
                 ),
                 delegate: SliverChildBuilderDelegate(
-                  (context, i) =>
-                      _KitCard(kit: startupKits[i], provider: provider),
+                  (context, i) => FadeSlideIn(
+                    delay: Duration(milliseconds: 40 * i),
+                    child: _KitCard(kit: startupKits[i], provider: provider),
+                  ),
                   childCount: startupKits.length,
                 ),
               ),
@@ -109,12 +128,18 @@ class _HeroHeader extends StatelessWidget {
   final int completed;
   final int total;
   final double percent;
+  final int streak;
+  final bool streakDoneToday;
+  final int xp;
 
   const _HeroHeader({
     required this.userName,
     required this.completed,
     required this.total,
     required this.percent,
+    required this.streak,
+    required this.streakDoneToday,
+    required this.xp,
   });
 
   @override
@@ -225,7 +250,27 @@ class _HeroHeader extends StatelessWidget {
                       ),
                     ],
                   ),
-                  const SizedBox(height: 24),
+                  const SizedBox(height: 16),
+                  Row(
+                    children: [
+                      _HeroChip(
+                        icon: Icons.local_fire_department_rounded,
+                        iconColor: streak > 0
+                            ? const Color(0xFFFFC93C)
+                            : Colors.white54,
+                        text: streak > 0
+                            ? '$streak day streak${streakDoneToday ? '' : ' · finish a lesson to keep it'}'
+                            : 'No streak yet — learn today',
+                      ),
+                      const SizedBox(width: 8),
+                      _HeroChip(
+                        icon: Icons.bolt_rounded,
+                        iconColor: Colors.white,
+                        text: '$xp XP',
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 16),
                   // Progress card
                   Container(
                     padding: const EdgeInsets.all(18),
@@ -299,6 +344,47 @@ class _HeroHeader extends StatelessWidget {
             ),
           ),
         ],
+      ),
+    );
+  }
+}
+
+class _HeroChip extends StatelessWidget {
+  final IconData icon;
+  final Color iconColor;
+  final String text;
+
+  const _HeroChip({
+    required this.icon,
+    required this.iconColor,
+    required this.text,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return PopIn(
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+        decoration: BoxDecoration(
+          color: Colors.white.withValues(alpha: 0.16),
+          borderRadius: BorderRadius.circular(40),
+          border: Border.all(color: Colors.white.withValues(alpha: 0.25)),
+        ),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Icon(icon, size: 15, color: iconColor),
+            const SizedBox(width: 5),
+            Text(
+              text,
+              style: const TextStyle(
+                color: Colors.white,
+                fontSize: 12,
+                fontWeight: FontWeight.w700,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

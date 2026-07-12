@@ -122,10 +122,19 @@ class _NavItem extends StatelessWidget {
                 color: active ? AppColors.primaryLight : Colors.transparent,
                 borderRadius: BorderRadius.circular(14),
               ),
-              child: Icon(
-                icon,
-                size: 22,
-                color: active ? AppColors.primary : AppColors.textHint,
+              // Key on `active` so selecting a tab replays the elastic pop.
+              child: TweenAnimationBuilder<double>(
+                key: ValueKey(active),
+                tween: Tween(begin: active ? 0.55 : 1.0, end: 1.0),
+                duration: const Duration(milliseconds: 500),
+                curve: Curves.elasticOut,
+                builder: (context, scale, child) =>
+                    Transform.scale(scale: scale, child: child),
+                child: Icon(
+                  icon,
+                  size: 22,
+                  color: active ? AppColors.primary : AppColors.textHint,
+                ),
               ),
             ),
             const SizedBox(height: 3),
