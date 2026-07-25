@@ -537,7 +537,7 @@ final List<KitModel> startupKits = [
         keyPoints: [
           'Open with the customer\'s pain, not your product',
           'Social proof (case studies) builds credibility',
-          '\"Why us\" must be defensible and specific',
+          '"Why us" must be defensible and specific',
           'Always end with a clear, specific ask',
         ],
       ),
